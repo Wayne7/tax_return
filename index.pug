@@ -1,0 +1,101 @@
+doctype html
+html(lang='cs')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Přiznání - Daně jednoduše na pár kliknutí
+    link(rel="icon", type="image/png", href="img/icon.png")
+    link(href='bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.0/jspdf.min.js')
+    link(href='https://fonts.googleapis.com/css?family=Roboto', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i', rel='stylesheet')
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.4.1/css/all.css', integrity='sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz', crossorigin='anonymous')
+    link(href='css/one-page-wonder.min.css', rel='stylesheet')
+    link#bootstrap-css(href='//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='css/style.css')
+    link(rel='stylesheet', type='text/css', href='css/main.css')
+    // Kalendář
+    link(rel='stylesheet', href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.8/themes/base/jquery-ui.css', type='text/css', media='all')
+    link(rel='stylesheet', href='http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css', type='text/css', media='all')
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js', type='text/javascript')
+    script(src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.8/jquery-ui.min.js', type='text/javascript')
+  body
+    // Navigation
+    nav.navbar.navbar-expand-lg.navbar-dark.navbar-custom.fixed-top
+      .container
+        a.brand(href='index.html')
+          img(src='img/priznani.png', width='220px', height='65px')
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarResponsive.collapse.navbar-collapse(style='float:right;')
+          ul.navbar-nav.ml-auto
+            li.brand
+              a.nav-link(href='elektronicke_formulare.html') Elektronické formuláře
+            li.brand
+              a.nav-link(href='dokumenty.html') Daňové tiskopisy
+    header
+      h1.nadpis1 Daňové přiznání z pohodlí vašeho domova
+      h2.nadpis2 Vyplňte si daňové přiznáni během několika minut
+    section
+      .container
+        .row.align-items-center
+          .col-lg-6.order-lg-2
+            .p-5
+              img.img-fluid.rounded-circle(src='img/business.jpg', alt='')
+          .col-lg-6.order-lg-1
+            .p-5
+              h2 Jste podnikatel?
+              p
+                | Povinost podat daňové přiznání vzniká na základě ustanovení § 38 zákona o daních z příjmů těm podnikatelům, jejichž roční příjmy přesáhly částku 15.000 Kč a zároveň se nejedná o příjmy, které jsou od daně osvobozeny nebo se na ně neuplatňuje daň srážková.Podání musejí podat také ti podnikatelé, kteří byli v uplynulém zdaňovacím období ve ztrátě.
+              a(href='podnikatel.html')
+                button.btn.btn-primary.btn-lg(type='button') Vyplnit formulář
+    section
+      .container
+        .row.align-items-center
+          .col-lg-6
+            .p-5
+              img.img-fluid.rounded-circle(src='img/worker.png', alt='')
+          .col-lg-6
+            .p-5
+              h2 Jste zaměstnanec?
+              p
+                | Formulář daňového přiznání za rok 2018 nemusí odevzdávat zaměstnanci, kteří během uplynulého roku pracovali pouze pro jednoho zaměstnavatele anebo pro více zaměstnavatelů postupně a u všech těchto zaměstnavatelů podepsali prohlášení k dani. Sám podává daňové přiznání zaměstnanec, pokud: měl v roce 2018 celkové příjmy (v hrubé mzdě) vyšší než 1 438 992 korun nebo během roku 2018 pracoval postupně pro víc zaměstnavatelů a u některého nepodepsal prohlášení k dani.
+              a(href='zamestnanec.html')
+                button.btn.btn-primary.btn-lg(type='button') Vyplnit formulář
+    section
+      .container
+        .row.align-items-center
+          .col-lg-6.order-lg-2
+            .p-5
+              img.img-fluid.rounded-circle(src='img/student.jpg', alt='')
+          .col-lg-6.order-lg-1
+            .p-5
+              h2 Jste student?
+              p
+                | Daňové přiznání musí podat také studenti, kteří během roku pracovali pro více zaměstanavatelů najednou nebo k zaměstatnání podnikali. Tato podmínka je stejná, jako u běžných zaměstnanců. Rozdíl však nastává u studentů, kteří pracovali u jednoho zaměstanavatele a chtějí získat zpět zálohu na dani, kterou za ně zaměstanavatel odvedl. V případě studentů se vypočítaná daň snižuje o slevu na poplatníka (24 840 Kč) a slevu na studenta (4 020 Kč v případě, že studoval celý rok).
+              a(href='student.html')
+                button.btn.btn-primary.btn-lg(type='button') Vyplnit formulář
+    // Footer
+    .oblique
+    footer.footer1.py-5.bg-black
+      p.m-0.text-center.text-white.small Copyright © Přiznání 2019
+      // /.container
+      // Bootstrap core JavaScript
+      script(type='text/javascript', src='js/createPDF.js')
+      script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+      script(src='vendor/jquery/jquery.min.js')
+      script(src='https://d3js.org/d3.v3.js')
+      script(type='text/javascript', src='js/saveLoad.js')
+      script(type='text/javascript', src='js/main.js')
+      script(type='text/javascript', src='js/toggle.js')
+      script(type='text/javascript', src='js/xmlExport.js')
+      script(src='http://code.jquery.com/jquery-latest.js')
+      script(src='bootstrap/js/bootstrap.min.js')
+      script(src='jquery.bootstrap.wizard.js')
+      script(src='prettify.js')
+      script.
+        $(document).ready(function() {
+        $('#rootwizard').bootstrapWizard();
+        window.prettyPrint && prettyPrint()
+        });
