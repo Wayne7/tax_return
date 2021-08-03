@@ -1,0 +1,88 @@
+ /* Style the form */
+#regForm {
+  padding-right: 15px;
+  width: 90%;
+  min-width: 320px;
+	background-color: #fcdce1;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+/* Mark the active step: */
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
+
+.none {
+    display:none;
+}
+
+.toggleDiv {
+	display:none
+}
+
+h6 {
+	font-size: 16px;
+	font-family: 'Catamaran';
+	font-weight: normal;
+}
+
+.button {
+	background-color: #0c0c0c;
+	border: none;
+	color: white;
+	padding: 12px 20px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+  margin: 4px 2px;
+  opacity: 0.80;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+	width: 200px;
+	height: 50px;
+}
+
+.button:hover {opacity: 1}
+
+.buttonRadio {
+	background-color: #0c0c0c;
+	border: none;
+	color: white;
+	padding: 12px 20px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+  margin: 4px 2px;
+  opacity: 0.80;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+	width: 200px;
+	height: 50px;
+}
+
+.buttonRadio:hover {opacity: 1}

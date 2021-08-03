@@ -1,0 +1,130 @@
+/*!
+ * Start Bootstrap - One Page Wonder v5.0.0 (https://startbootstrap.com/template-overviews/one-page-wonder)
+ * Copyright 2013-2018 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-one-page-wonder/blob/master/LICENSE)
+ */body{font-family: 'Roboto', sans-serif;}h1,h2,h3,h4,h5,h6{font-family: 'Roboto', sans-serif;font-weight:800!important}.btn-xl{text-transform:uppercase;padding:1.5rem 3rem;font-size:.9rem;font-weight:700;letter-spacing:.1rem}.bg-black{background-color:#000!important}.rounded-pill{border-radius:5rem}.navbar-custom{padding-top:1rem;padding-bottom:1rem;background-color:rgba(0,0,0,.7)}.navbar-custom .navbar-brand{text-transform:uppercase;font-size:1rem;letter-spacing:.1rem;font-weight:700}.navbar-custom .navbar-nav .nav-item .nav-link{text-transform:uppercase;font-size:.8rem;font-weight:700;letter-spacing:.1rem}header.masthead{position:relative; height:500px;overflow:hidden;padding-top:calc(7rem + 72px);padding-bottom:7rem;}header.masthead .masthead-content{z-index:1;position:relative}header.masthead .masthead-content .masthead-heading{font-size:4rem}header.masthead .masthead-content .masthead-subheading{font-size:2rem}header.masthead .bg-circle{z-index:0;position:absolute;border-radius:50%;}header.masthead .bg-circle-1{height:50rem;width:90rem;bottom:-55rem;left:-55rem}header.masthead .bg-circle-2{height:50rem;width:50rem;top:-25rem;right:-25rem}header.masthead .bg-circle-3{height:20rem;width:20rem;bottom:-10rem;right:5%}header.masthead .bg-circle-4{height:30rem;width:30rem;top:-5rem;right:35%}@media (min-width:992px){header.masthead{padding-top:calc(10rem + 55px);padding-bottom:10rem}header.masthead .masthead-content .masthead-heading{font-size:6rem}header.masthead .masthead-content .masthead-subheading{font-size:4rem}}.bg-primary{background-color:#ee0979!important}.btn-primary{background-color:#eee;border-color:#ee0979}.btn-primary:active,.btn-primary:focus,.btn-primary:hover{background-color:#bd0760!important;border-color:#bd0760!important}.btn-primary:focus{-webkit-box-shadow:0 0 0 .2rem rgba(238,9,121,.5);box-shadow:0 0 0 .2rem rgba(238,9,121,.5)}.btn-secondary{background-color:#ff6a00;border-color:#ff6a00}.btn-secondary:active,.btn-secondary:focus,.btn-secondary:hover{background-color:#c50!important;border-color:#c50!important}.btn-secondary:focus{-webkit-box-shadow:0 0 0 .2rem rgba(255,106,0,.5);box-shadow:0 0 0 .2rem rgba(255,106,0,.5)}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 0px;
+  background-color: #ccc;
+}
+
+.card-2 {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.wrapper {
+  margin-top: 100px;
+  margin-bottom: 150px;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #cccccc;
+  padding: 10px 10px 10px 10px;
+}
+
+.toggleDiv { display:none}
+
+.color {
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+	background-color: #faf8f8;
+}
+
+.footer2 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 120px;
+  margin-top: 500px;
+  /* Set the fixed height of the footer here */
+  background-color: #f5f5f5;
+}
+
+.footer1 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 120px;
+  /* Set the fixed height of the footer here */
+  background-color: #f5f5f5;
+}
+
+.oblique {
+	background-color: #000;
+	height: 200px;
+	clip-path: polygon(
+    100% 100%,
+    0 100%,
+    0 0,
+    0 calc(100% - 5vw));
+	margin-bottom: 119px;
+}
+
+header {
+	background: #DD5E89;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #F7BB97, #DD5E89);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #F7BB97, #DD5E89);
+	position: relative;
+	height: 500px;
+	clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    0 calc(100% - 5vw)
+  );
+  /* change the calc height to a percentage height to get alternate responsive behavior*/
+}
+
+.nadpis1 {
+	padding-top: 180px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 55px;
+	color: white;
+	text-align: center;
+}
+
+.nadpis2 {
+  font: 44px;
+  color: white;
+  text-align: center;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+.btn-circle.btn-lg {
+  width: 15px;
+  height: 15px;
+  padding: 10px 0px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+}
+
+section {
+  margin-top: -2vw;
+}
