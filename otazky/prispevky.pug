@@ -1,0 +1,16 @@
++otazka('Platil(a) jsem v loňském roce členské příspěvky   ', 'Členské příspěvky', 'Nárok na odpočet za zaplacené členské příspěvky má poplatník po upltnění potvrzením odborové organizace, jenž dle svých stanov obhajuje hospodářské a sociální zájmy zaměstnanců v rozsahu vymezeném v zákoníku práce.  Poplatníci si v tomto případě mohou odečíst částku až do výše 1,5% zdanitelných příjmů. Maximálně se jedná o 3 000 Kč za zdaňovací období.')
++vyber("$('#div25').slideDown();")
+
+#div25.none
+   label
+     | Částka za všechna zaplacené příspěvky
+     font(color="red") * &nbsp
+     +napoveda('Částka za všechna zaplacené příspěvky', 'Prosím uvádějte částky v celých Kč.')
+   small.form-text.text-muted Celkově lze uplatnit maximálně 3 000 Kč a pouze v případě, že máte příjmy ze zaměstnaní!
+   input#castkaPrispevky.form-control(
+        placeholder='Uvedte částku za všechna zaplacené příspěvky...',
+        type='text',
+        onkeyup = 'prispevky()',
+        onblur = 'prispevky2()',
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+        required='')

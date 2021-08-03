@@ -1,0 +1,620 @@
++otazka('Byl(a) jsem v letošním roce zaměstnán(a)   ', 'Zaměstnání', 'Mezi příjmy ze zaměstnání se počítají veškeré příjmy z pracovních smluv, dohod o provedení pracovní činnosti a dohod o provedení práce, pokud nejsou zdaňovány srážkovou daní. Dohody o provedení práce jsou zdaňovány srážkovou daní, pokud u zaměstnavatele nepodepíšete prohlášení k dani (tzv. růžové prohlášení) a Váš příjem je do 10 000 Kč.')
++vyber("$('#div9').slideDown();")
+
+#div9.none
+  .form-group
+   label
+    | Typ pracovního úvazku
+    font(color="red") * &nbsp
+    +napoveda('Typ pracovního úvazku', 'Vyberte jednu z nabízených možností typu pracovního úvazku')
+   select#typUvazku1.form-control(
+       name='typUvazku1',
+       onchange='show_srazkova_dan()')
+    option(selected='selected', value='', required='required') Vyberte o jaký typ pracovního úvazku se jedná...
+    option(value='Pracovní poměr') Pracovní poměr
+    option(value='Dohoda o pracovní činnosti') Dohoda o pracovní činnosti
+    option(value='Dohoda o provedení práce') Dohoda o provedení práce
+
+  .form-row
+   .form-group.col-md-6
+    label
+     | Celkový hrubý příjem
+     font(color="red") * &nbsp
+     +napoveda('Celkový hrubý příjem', 'Uveďte celkový hrubý příjem od vašeho zaměstnavatele dle formuláře <b>„Potvrzení o zdanitelných příjmech ze závislé činnosti sražených zálohách na daň a daňové zvýhodnění“</b>, který dostanete na vyžádání od Vašeho zaměstnavatele. <br><br>Opište částku z prvního řádku <b>"Úhrn zúčtovaných příjmů ze závislé činnosti"</b>.<br><br>Prosím uvádějte částky v celých Kč.')
+
+    input#hrubyPrijem1.form-control(
+        placeholder='Celkový hrubý příjem...',
+        type='text',
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+        required='')
+
+   .form-group.col-md-6
+    label
+     | Celková sražená záloha na daň
+     font(color="red") * &nbsp
+     +napoveda('Celková sražená záloha na daň', 'Uveďte částku sražené zálohy na daň od vašeho zaměstnavatele dle formuláře <b>„Potvrzení o zdanitelných příjmech ze závislé činnosti sražených zálohách na daň a daňové zvýhodnění“</b>, který dostanete na vyžádání od Vašeho zaměstnavatele. <br><br>Celkovou sraženou zálohu na daň najdete na řádku číslo 12. Řádek je pojmenován jako: <b>Záloha na daň z příjmů celkem.</b><br><br>Od řádku 12 navíc odečtěte hodnotu z řádku 19: <b>Doplatek ze zúčtování</b> viz <a href="img/potvrzenizalohy.png" target="_blank"><font color="red">PŘÍKLAD</font></a>')
+
+    input#zalohaZamestnani1.form-control(
+        placeholder='Celková sražená záloha na daň...',
+        type='text',
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+        required='')
+
+   .form-group.col-md-6
+    label
+     | Celkem pojištění placené zaměstnavatelem
+     font(color="red") * &nbsp
+     +napoveda('Celkem pojištění placené zaměstnavatelem', 'Uveďte částku sražené zálohy na daň od vašeho zaměstnavatele dle formuláře <b>„Potvrzení o zdanitelných příjmech ze závislé činnosti sražených zálohách na daň a daňové zvýhodnění“</b>, který dostanete na vyžádání od Vašeho zaměstnavatele. <br><br>Celkové pojištění zaplacené zaměstnavatelem najdete na řádku číslo 6 s názvem: <b>Úhrn povinného pojistného z příjmů uvedených na ř.2</b> viz <a href="img/pojisteni.png" target="_blank"><font color="red">PŘÍKLAD</font></a>')
+
+    input#pojisteniZamestnavatel1.form-control(
+        placeholder='Celkem pojištění placené zaměstnavatelem...',
+        type='text',
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+        required='')
+
+   .form-group.col-md-6
+    label
+     | Daňový bonus &nbsp
+     +napoveda('Daňový bonus', 'Na daňový bonus mají nárok pouze osoby s dětmi, na které uplatňují daňové zvýhodnění na vyživované děti. Uveďte částku daňového bonusu od vašeho zaměstnavatele dle formuláře <b>„Potvrzení o zdanitelných příjmech ze závislé činnosti sražených zálohách na daň a daňové zvýhodnění“</b>, který dostanete na vyžádání od Vašeho zaměstnavatele. <br><br>Daňový bonus najdete na řádku číslo 13 s názvem: <b>Úhrn vyplacených měsíčních daňových bonusů</b> viz <a href="img/bonus.png" target="_blank"><font color="red">PŘÍKLAD</font></a>')
+
+    input#danBonus1.form-control(
+        placeholder='Daňový bonus...',
+        type='text',
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+        required='')
+
+  #SD.none.form-group
+    label
+     | Srážková daň
+     font(color="red") * &nbsp
+     +napoveda('Srážková daň', 'V případě, že máte příjmy z Dohody o provedení práce, opište člástku z položky <b>"Úhrn skutečně sražené daně vybírané srážkou podle zvláštní sazby daně z příjmů uvedených na ř. 2"</b> viz <a href="img/DPP.png" target="_blank"><font color="red">PŘÍKLAD</font></a>')
+
+    input#srazkovaDan1.form-control(
+        placeholder='Srážková daň...',
+        type='text',
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+  // 2.příjem
+  button#pridat1.btn.btn-outline-danger(
+      onclick="$('#zamestnani2').slideDown();")
+      | + Přidat zaměstnání
+  #zamestnani2.none
+   hr
+   button#odebratZamestnani2.btn.btn-outline-danger.pull-right(
+       onclick="$('#zamestnani2').slideUp();")
+       | - Odebrat zaměstnání
+
+   h2 2. Zaměstnání
+   .form-group
+      label
+       | Typ pracovního úvazku
+       font(color="red") * &nbsp
+      select#typUvazku2.form-control(
+          name='typUvazku2',
+          onchange='show_srazkova_dan2()')
+       option(selected='selected', value='', required='required') Vyberte o jaký typ pracovního úvazku se jedná...
+       option(value='Pracovní poměr') Pracovní poměr
+       option(value='Dohoda o pracovní činnosti') Dohoda o pracovní činnosti
+       option(value='Dohoda o provedení práce') Dohoda o provedení práce
+
+   .form-row
+      .form-group.col-md-6
+       label
+        | Celkový hrubý příjem
+        font(color="red") * &nbsp
+
+       input#hrubyPrijem2.form-control(
+           placeholder='Celkový hrubý příjem...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+      .form-group.col-md-6
+       label
+        | Celková sražená záloha na daň
+        font(color="red") * &nbsp
+
+       input#zalohaZamestnani2.form-control(
+           placeholder='Celková sražená záloha na daň...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+      .form-group.col-md-6
+       label
+        | Celkem pojištění placené zaměstnavatelem
+        font(color="red") * &nbsp
+
+       input#pojisteniZamestnavatel2.form-control(
+           placeholder='Celkem pojištění placené zaměstnavatelem...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+      .form-group.col-md-6
+       label
+        | Daňový bonus &nbsp
+
+       input#danBonus2.form-control(
+           placeholder='Daňový bonus...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+   #SD2.none.form-group
+    label
+     | Srážková daň
+     font(color="red") * &nbsp
+
+    input#srazkovaDan2.form-control(
+        placeholder='Srážková daň...',
+        type='text',
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+    // 3.zaměstnání
+   button#pridat1.btn.btn-outline-danger(
+      onclick="$('#zamestnani3').slideDown();")
+      | + Přidat zaměstnání
+  #zamestnani3.none
+   hr
+   button#odebratZamestnani3.btn.btn-outline-danger.pull-right(
+       onclick="$('#zamestnani3').slideUp();")
+       | - Odebrat zaměstnání
+
+   h2 3. Zaměstnání
+   .form-group
+      label
+       | Typ pracovního úvazku
+       font(color="red") * &nbsp
+
+      select#typUvazku3.form-control(
+          name='typUvazku3',
+          onchange='show_srazkova_dan3()')
+       option(selected='selected', value='', required='required') Vyberte o jaký typ pracovního úvazku se jedná...
+       option(value='Pracovní poměr') Pracovní poměr
+       option(value='Dohoda o pracovní činnosti') Dohoda o pracovní činnosti
+       option(value='Dohoda o provedení práce') Dohoda o provedení práce
+
+   .form-row
+      .form-group.col-md-6
+       label
+        | Celkový hrubý příjem
+        font(color="red") * &nbsp
+
+       input#hrubyPrijem3.form-control(
+           placeholder='Celkový hrubý příjem...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+      .form-group.col-md-6
+       label
+        | Celková sražená záloha na daň
+        font(color="red") * &nbsp
+
+       input#zalohaZamestnani3.form-control(
+           placeholder='Celková sražená záloha na daň...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+      .form-group.col-md-6
+       label
+        | Celkem pojištění placené zaměstnavatelem
+        font(color="red") * &nbsp
+
+       input#pojisteniZamestnavatel3.form-control(
+           placeholder='Celkem pojištění placené zaměstnavatelem...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+      .form-group.col-md-6
+       label
+        | Daňový bonus &nbsp
+
+       input#danBonus3.form-control(
+           placeholder='Daňový bonus...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+   #SD3.none.form-group
+    label
+     | Srážková daň
+     font(color="red") * &nbsp
+
+    input#srazkovaDan3.form-control(
+        placeholder='Srážková daň...',
+        type='text',
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+    // 4.zaměstnání
+   button#pridat1.btn.btn-outline-danger(
+      onclick="$('#zamestnani4').slideDown();")
+      | + Přidat zaměstnání
+  #zamestnani4.none
+   hr
+   button#odebratZamestnani4.btn.btn-outline-danger.pull-right(
+       onclick="$('#zamestnani4').slideUp();")
+       | - Odebrat zaměstnání
+
+   h2 4. Zaměstnání
+   .form-group
+      label
+       | Typ pracovního úvazku
+       font(color="red") * &nbsp
+
+      select#typUvazku4.form-control(
+          name='typUvazku4',
+          onchange='show_srazkova_dan4()')
+       option(selected='selected', value='', required='required') Vyberte o jaký typ pracovního úvazku se jedná...
+       option(value='Pracovní poměr') Pracovní poměr
+       option(value='Dohoda o pracovní činnosti') Dohoda o pracovní činnosti
+       option(value='Dohoda o provedení práce') Dohoda o provedení práce
+
+   .form-row
+      .form-group.col-md-6
+       label
+        | Celkový hrubý příjem
+        font(color="red") * &nbsp
+
+       input#hrubyPrijem4.form-control(
+           placeholder='Celkový hrubý příjem...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+      .form-group.col-md-6
+       label
+        | Celková sražená záloha na daň
+        font(color="red") * &nbsp
+
+       input#zalohaZamestnani4.form-control(
+           placeholder='Celková sražená záloha na daň...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+      .form-group.col-md-6
+       label
+        | Celkem pojištění placené zaměstnavatelem
+        font(color="red") * &nbsp
+
+       input#pojisteniZamestnavatel4.form-control(
+           placeholder='Celkem pojištění placené zaměstnavatelem...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+      .form-group.col-md-6
+       label
+        | Daňový bonus &nbsp
+
+       input#danBonus4.form-control(
+           placeholder='Daňový bonus...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+   #SD4.none.form-group
+    label
+     | Srážková daň
+     font(color="red") * &nbsp
+
+    input#srazkovaDan4.form-control(
+        placeholder='Srážková daň...',
+        type='text',
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+    // 5.zaměstnání
+   button#pridat1.btn.btn-outline-danger(
+      onclick="$('#zamestnani5').slideDown();")
+      | + Přidat zaměstnání
+  #zamestnani5.none
+   hr
+   button#odebratZamestnani5.btn.btn-outline-danger.pull-right(
+       onclick="$('#zamestnani5').slideUp();")
+       | - Odebrat zaměstnání
+
+   h2 5. Zaměstnání
+   .form-group
+      label
+       | Typ pracovního úvazku
+       font(color="red") * &nbsp
+
+      select#typUvazku5.form-control(
+          name='typUvazku5',
+          onchange='show_srazkova_dan5()')
+       option(selected='selected', value='', required='required') Vyberte o jaký typ pracovního úvazku se jedná...
+       option(value='Pracovní poměr') Pracovní poměr
+       option(value='Dohoda o pracovní činnosti') Dohoda o pracovní činnosti
+       option(value='Dohoda o provedení práce') Dohoda o provedení práce
+
+   .form-row
+      .form-group.col-md-6
+       label
+        | Celkový hrubý příjem
+        font(color="red") * &nbsp
+
+       input#hrubyPrijem5.form-control(
+           placeholder='Celkový hrubý příjem...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+      .form-group.col-md-6
+       label
+        | Celková sražená záloha na daň
+        font(color="red") * &nbsp
+
+       input#zalohaZamestnani5.form-control(
+           placeholder='Celková sražená záloha na daň...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+      .form-group.col-md-6
+       label
+        | Celkem pojištění placené zaměstnavatelem
+        font(color="red") * &nbsp
+
+       input#pojisteniZamestnavatel5.form-control(
+           placeholder='Celkem pojištění placené zaměstnavatelem...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+      .form-group.col-md-6
+       label
+        | Daňový bonus &nbsp
+
+       input#danBonus5.form-control(
+           placeholder='Daňový bonus...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+   #SD5.none.form-group
+    label
+     | Srážková daň
+     font(color="red") * &nbsp
+
+    input#srazkovaDan5.form-control(
+        placeholder='Srážková daň...',
+        type='text',
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+    // 6.zaměstnání
+   button#pridat1.btn.btn-outline-danger(
+      onclick="$('#zamestnani6').slideDown();")
+      | + Přidat zaměstnání
+  #zamestnani6.none
+   hr
+   button#odebratZamestnani6.btn.btn-outline-danger.pull-right(
+       onclick="$('#zamestnani6').slideUp();")
+       | - Odebrat zaměstnání
+
+   h2 6. Zaměstnání
+   .form-group
+      label
+       | Typ pracovního úvazku
+       font(color="red") * &nbsp
+
+      select#typUvazku6.form-control(
+          name='typUvazku6',
+          onchange='show_srazkova_dan6()')
+       option(selected='selected', value='', required='required') Vyberte o jaký typ pracovního úvazku se jedná...
+       option(value='Pracovní poměr') Pracovní poměr
+       option(value='Dohoda o pracovní činnosti') Dohoda o pracovní činnosti
+       option(value='Dohoda o provedení práce') Dohoda o provedení práce
+
+   .form-row
+      .form-group.col-md-6
+       label
+        | Celkový hrubý příjem
+        font(color="red") * &nbsp
+
+       input#hrubyPrijem6.form-control(
+           placeholder='Celkový hrubý příjem...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+      .form-group.col-md-6
+       label
+        | Celková sražená záloha na daň
+        font(color="red") * &nbsp
+
+       input#zalohaZamestnani6.form-control(
+           placeholder='Celková sražená záloha na daň...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+      .form-group.col-md-6
+       label
+        | Celkem pojištění placené zaměstnavatelem
+        font(color="red") * &nbsp
+
+       input#pojisteniZamestnavatel6.form-control(
+           placeholder='Celkem pojištění placené zaměstnavatelem...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+      .form-group.col-md-6
+       label
+        | Daňový bonus &nbsp
+
+       input#danBonus6.form-control(
+           placeholder='Daňový bonus...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+   #SD6.none.form-group
+    label
+     | Srážková daň
+     font(color="red") * &nbsp
+
+    input#srazkovaDan6.form-control(
+        placeholder='Srážková daň...',
+        type='text',
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+    // 7.zaměstnání
+   button#pridat1.btn.btn-outline-danger(
+      onclick="$('#zamestnani7').slideDown();")
+      | + Přidat zaměstnání
+  #zamestnani7.none
+   hr
+   button#odebratZamestnani7.btn.btn-outline-danger.pull-right(
+       onclick="$('#zamestnani7').slideUp();")
+       | - Odebrat zaměstnání
+
+   h2 7. Zaměstnání
+   .form-group
+      label
+       | Typ pracovního úvazku
+       font(color="red") * &nbsp
+
+      select#typUvazku7.form-control(
+          name='typUvazku7',
+          onchange='show_srazkova_dan7()')
+       option(selected='selected', value='', required='required') Vyberte o jaký typ pracovního úvazku se jedná...
+       option(value='Pracovní poměr') Pracovní poměr
+       option(value='Dohoda o pracovní činnosti') Dohoda o pracovní činnosti
+       option(value='Dohoda o provedení práce') Dohoda o provedení práce
+
+   .form-row
+      .form-group.col-md-6
+       label
+        | Celkový hrubý příjem
+        font(color="red") * &nbsp
+
+       input#hrubyPrijem7.form-control(
+           placeholder='Celkový hrubý příjem...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+      .form-group.col-md-6
+       label
+        | Celková sražená záloha na daň
+        font(color="red") * &nbsp
+
+       input#zalohaZamestnani7.form-control(
+           placeholder='Celková sražená záloha na daň...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+      .form-group.col-md-6
+       label
+        | Celkem pojištění placené zaměstnavatelem
+        font(color="red") * &nbsp
+
+       input#pojisteniZamestnavatel7.form-control(
+           placeholder='Celkem pojištění placené zaměstnavatelem...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+      .form-group.col-md-6
+       label
+        | Daňový bonus &nbsp
+
+       input#danBonus7.form-control(
+           placeholder='Daňový bonus...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+   #SD7.none.form-group
+    label
+     | Srážková daň
+     font(color="red") * &nbsp
+
+    input#srazkovaDan7.form-control(
+        placeholder='Srážková daň...',
+        type='text',
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+    // 8.zaměstnání
+   button#pridat1.btn.btn-outline-danger(
+      onclick="$('#zamestnani8').slideDown();")
+      | + Přidat zaměstnání
+  #zamestnani8.none
+   hr
+   button#odebratZamestnani8.btn.btn-outline-danger.pull-right(
+       onclick="$('#zamestnani8').slideUp();")
+       | - Odebrat zaměstnání
+
+   h2 8. Zaměstnání
+   .form-group
+      label
+       | Typ pracovního úvazku
+       font(color="red") * &nbsp
+
+      select#typUvazku8.form-control(
+          name='typUvazku8',
+          onchange='show_srazkova_dan8()')
+       option(selected='selected', value='', required='required') Vyberte o jaký typ pracovního úvazku se jedná...
+       option(value='Pracovní poměr') Pracovní poměr
+       option(value='Dohoda o pracovní činnosti') Dohoda o pracovní činnosti
+       option(value='Dohoda o provedení práce') Dohoda o provedení práce
+
+   .form-row
+      .form-group.col-md-6
+       label
+        | Celkový hrubý příjem
+        font(color="red") * &nbsp
+
+       input#hrubyPrijem8.form-control(
+           placeholder='Celkový hrubý příjem...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+      .form-group.col-md-6
+       label
+        | Celková sražená záloha na daň
+        font(color="red") * &nbsp
+
+       input#zalohaZamestnani8.form-control(
+           placeholder='Celková sražená záloha na daň...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+      .form-group.col-md-6
+       label
+        | Celkem pojištění placené zaměstnavatelem
+        font(color="red") * &nbsp
+
+       input#pojisteniZamestnavatel8.form-control(
+           placeholder='Celkem pojištění placené zaměstnavatelem...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+      .form-group.col-md-6
+       label
+        | Daňový bonus &nbsp
+
+       input#danBonus8.form-control(
+           placeholder='Daňový bonus...',
+           type='text',
+           oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+           required='')
+
+   #SD8.none.form-group
+    label
+     | Srážková daň
+     font(color="red") * &nbsp
+
+    input#srazkovaDan8.form-control(
+        placeholder='Srážková daň...',
+        type='text',
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');")

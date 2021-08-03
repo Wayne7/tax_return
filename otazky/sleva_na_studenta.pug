@@ -1,0 +1,23 @@
++otazka('Byl(a) jsem v uplynulém roce studentem   ', 'Sleva na studenta', 'Aby měl poplatník nárok na tuto slevu, <b>je nutno dodat potvrzení o studiu</b>. Co se týče studia na vysoké škole, může se jednat jak o prezenční, tak i distanční či kombinovanou                    formu studia. Této slevy mohou využít studenti do 26 let nebo do 28 let u prezenční formy doktorského studia. Sleva na studenta pro letošní rok činí 4 040 Kč (335 Kč/měsíc).')
++vyber("$('#div17').slideDown();")
+
+#div17.none
+  .form-group
+   label Počet měsíců, během nichž jsem byl(a) loni studentem
+    font(color="red") * &nbsp
+   select#pocetMesicuStudia.form-control.form-control-lg(
+       name='pocetMesicuStudia',
+       required='required')
+    option(value='0') Počet měsíců studia...
+    option(value='1') 1
+    option(value='2') 2
+    option(value='3') 3
+    option(value='4') 4
+    option(value='5') 5
+    option(value='6') 6
+    option(value='7') 7
+    option(value='8') 8
+    option(value='9') 9
+    option(value='10') 10
+    option(value='11') 11
+    option(value='12') 12

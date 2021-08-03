@@ -1,0 +1,30 @@
++otazka('Daroval(a) jsem v uplynulém roce krev, její složky nebo orgán   ', 'Dárcovství krve a složek krve', 'Mezi dary se počítá také dárcovství krve či složek krve, mezi něž patří plazma a krevní destičky. Hodnota jednoho daru je zákonem ohodnocena na 3 000 Kč. Odpočet                    základu daně sice není určet počtem odběrů krve, ale v daňovém přiznání lze odečíst maximálně částku ve výši 15% ze základu daně. V případě dárcovství orgánu si lze odečíst 20 000 Kč.<br>                    <b>Ke každému odběru musí být doloženo potvrzením, které Vám vystaví personál při odběru krve nebo transplantačního centra.<b>')
++vyber("$('#div18').slideDown();")
+
+#div18.none
+  .form-group
+   label Počet odběrů krve
+    font(color="red") * &nbsp
+   input#darcovstviKrve.form-control(
+       placeholder='Uveďte počet odběrů krve...',
+       type='text',
+       oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+       required='')
+
+  center
+   button#new-board-btn.btn.btn-outline-danger.btn-lg.btn-block(
+       type='button',
+       onclick="$('#div18_1').slideDown();")
+       | Daroval jsem orgán, kostní dřeň či kmenové buňky
+  br
+
+  #div18_1.none
+   br
+   .form-group
+    label Počet odběrů
+        font(color="red") * &nbsp
+    input#darcovstviOrganu.form-control(
+        placeholder='Uveďte počet odběrů...',
+        type='text',
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+        required='')

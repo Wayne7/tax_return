@@ -1,0 +1,120 @@
++otazka('Měl(a) jsem v letošním roce příjmy z nájmu   ', 'Příjmy z nájmu', 'Poplatník může mít kromě podnikání či zaměstatní také jiné zdroje příjmu. V případě nájmu je nutno uvést <b>celkové příjmy z nájmu, příjem pouze z nájmu nemovitých věcí (tato hodnota musí být menší nebo shodná s celkovým příjmem z nájmu), celkové výdaje na nájem a zaplacené zálohy na daň.</b>')
++vyber("$('#div10').slideDown();")
+
+#div10.none
+  label
+   | Chci uplatnit výdaje pocentem z příjmu &nbsp
+   +napoveda('Uplatnění výdajů - nájem', 'Příjmy z nájmu můžete snížit o skutečné nebo paušální výdaje ve výši 30 % z příjmů z nájmu. Použití paušálních výdajů je výhodnější, pokud jsou skutečné výdaje nižší než paušální nebo pokud skutečné výdaje neevidujete. <br> Skutečné výdaje mohou zahrnovat: výdaje na opravu a údržbu, pojištění, zaplacenou daň z nemovitých věcí, odpisy, úroky z úvěru použitého na získání nemovitosti atd.')
+  br
+
+  .custom-control.custom-radio.hightlight
+   input.my_features(
+       type='radio',
+       data-id='div4',
+       name='radio2',
+       autocomplete='off')
+   label(
+       for='evidence')
+    span(
+        style='margin-left:15px;')
+        | ANO
+
+  #div5.none
+   .form-row
+    .form-group.col-md-6
+     label
+      | Celkové příjmy z nájmu
+      font(color="red") * &nbsp
+      +napoveda('Celkové příjmy z nájmu', 'Uveďte celkové příjmy z nájmu nemovitostí i movitých věcí (např.: byt, dům, auto, technika, stroje, ...). <br><b>Prosím uvádějte částky v celých Kč!</b>')
+
+     input#prijmyZnajmu1.form-control(
+         placeholder='Celkový hrubý příjem...',
+         type='text',
+         oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+         required='')
+
+    .form-group.col-md-6
+     label
+      | Příjmy z nájmu jen nemovitých věcí &nbsp
+      +napoveda('Příjmy z nájmu jen nemovitých věcí', 'Tato částa musí být menší nebo rovna celkovému příjmu z nájmu. Prosím uvádějte částky v celých Kč.')
+
+     input#prijmyZnajmuNemovitychVeci1.form-control(
+         placeholder='Celkové příjmy z nájmu...',
+         type='text',
+         oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+    .form-group.col-md-6
+     label
+      | Skutečné výdaje na nájem &nbsp
+
+     input#vydajeNaNajem1.form-control(
+         placeholder='Skutečné výdaje na nájem...',
+         type='text',
+         oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+         disabled='')
+
+    .form-group.col-md-6
+     label
+      | Zaplacené zálohy na daň &nbsp
+      +napoveda('Zaplacené zálohy na daň', 'V případě, že jste měli v průběhu roku povinnost platit zálohy na dani z příjmů, uveďte veškeré zaplacené zálohy. Tato povinnost vyplývá z loňského daňové přiznání (2018). <br><b>Prosím uvádějte částky v celých Kč.</b>')
+
+     input#zaplaceneZalohyNajem1.form-control(
+         placeholder='Zaplacené zálohy na daň...',
+         type='text',
+         oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+  .custom-control.custom-radio.hightlight
+   input.my_features(
+       type='radio',
+       data-id='div5',
+       name='radio2',
+       autocomplete='off')
+
+   label(for='evidence')
+    span(style='margin-left:15px;')
+        | NE
+
+  #div4.none
+   .form-row
+    .form-group.col-md-6
+     label
+      | Celkové příjmy z nájmu
+      font(color="red") * &nbsp
+      +napoveda('Celkové příjmy z nájmu', 'Uveďte celkové příjmy z nájmu nemovitostí i movitých věcí (např.: byt, dům, auto, technika, stroje, ...). <br><b>Prosím uvádějte částky v celých Kč!</b>')
+
+     input#prijmyZnajmu2.form-control(
+         placeholder='Celkové příjmy z nájmu...',
+         type='text',
+         oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+         required='')
+
+    .form-group.col-md-6
+     label
+      | Příjmy z nájmu jen nemovitých věcí &nbsp
+      +napoveda('Příjmy z nájmu jen nemovitých věcí', 'Tato částa musí být menší nebo rovna celkovému příjmu z nájmu. Prosím uvádějte částky v celých Kč.')
+
+     input#prijmyZnajmuNemovitychVeci2.form-control(
+         placeholder='Příjmy z nájmu nemovitých věcí...',
+         type='text',
+         oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+    .form-group.col-md-6
+     label
+      | Skutečné výdaje na nájem
+      font(color="red") * &nbsp
+      +napoveda('Skutečné výdaje na nájem', 'Prosím uvádějte částky v celých Kč.')
+
+     input#vydajeNaNajem2.form-control(
+         placeholder='Skutečné výdaje na nájem...',
+         type='text',
+         oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+    .form-group.col-md-6
+     label
+      | Zaplacené zálohy na daň &nbsp
+      +napoveda('Zaplacené zálohy na daň', 'V případě, že jste měli v průběhu roku povinnost platit zálohy na dani z příjmů, uveďte veškeré zaplacené zálohy. Tato povinnost vyplývá z loňského daňové přiznání (2018). <br><b>Prosím uvádějte částky v celých Kč.</b>')
+
+     input#zaplaceneZalohyNajem2.form-control(
+         placeholder='Zaplacené zálohy na daň...',
+         type='text',
+         oninput="this.value=this.value.replace(/[^0-9]/g,'');")

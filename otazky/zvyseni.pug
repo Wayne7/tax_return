@@ -1,0 +1,99 @@
++otazka('Mám jiné okolnosti ZVYŠUJÍCÍ výsledek hospodaření   ', 'Okolnosti zvyšující výsledek hospodaření', 'V  případě, že zvyšujete výsledek hospodaření nebo rozdíl mezi příjmy a výdaji, uveďte jejich popis a výši v celých Kč v následujících položkách.<br>Mezi těmito částkami mohou být např.: zvyšující částky při nesplnění podmínek pro uplatnění částek podle § 34 odst. 3 zákona v platném znění, částky sraženého pojistného neodvedeného do konce měsíce následujícího po uplynutí zdaňovacího období u zaměstnavatelů vedoucích účetnictví, částky úprav při ukončení nebo přerušení činnosti a při změně způsobu uplatňování výdajů, nebo částky podle § 5 odst. 10 zákona apod.')
++vyber("$('#div27').slideDown();")
+
+#div27.none
+		.form-row
+			.form-group.col-md-6
+				label
+					| Důvod zvyšení výsledku hospodaření
+					font(color="red") * &nbsp
+					+napoveda('Důvod zvyšení výsledku hospodaření', 'Prosím napište důvod zvýšení výsledku hospodaření')
+
+				input#duvodZvyseni1.form-control(
+                    placeholder='Uveďte důvod zvyšení výsledku hospodaření...',
+                    type='text',
+                    required='')
+
+			.form-group.col-md-6
+				label
+					| Částka zvýšení
+					font(color="red") * &nbsp
+					+napoveda('Částka zvýšení', 'Prosím uvádějte částky v celých Kč.')
+
+				input#castkaZvyseni1.form-control(
+                    placeholder='Uveďte částku zvyšující výsledek hospodaření...',
+                    oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                    type='text')
+			br
+
+		// 2.zvýšení
+		button#pridat1.btn.btn-outline-danger(onclick="$('#zvyseni2').slideDown();") + Přidat zvýšení
+		#zvyseni2.none
+			hr
+			button#odebrat2.btn.btn-outline-danger.pull-right(onclick="$('#zvyseni2').slideUp();") - Odebrat zvýšení
+			h2 2.zvýšení
+			.form-row
+				.form-group.col-md-6
+					label
+						| Důvod zvyšení výsledku hospodaření
+					input#duvodZvyseni2.form-control(
+                        placeholder='Uveďte důvod zvyšení výsledku hospodaření...',
+                        type='text',
+                        required='')
+
+				.form-group.col-md-6
+					label
+						| Částka zvýšení
+					input#castkaZvyseni2.form-control(
+                        placeholder='Uveďte částku zvyšující výsledek hospodaření...',
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                        type='text')
+				br
+			button.btn.btn-outline-danger(onclick="$('#zvyseni3').slideDown();") + Přidat zvýšení
+
+		// 3.zvýšení
+		#zvyseni3.none(style='margin-top:10px;')
+			hr
+			button#odebrat3.btn.btn-outline-danger.pull-right(onclick="$('#zvyseni3').slideUp();") - Odebrat zvýšení
+			h2 3.zvýšení
+			.form-row
+				.form-group.col-md-6
+					label
+						| Důvod zvyšení výsledku hospodaření
+					input#duvodZvyseni3.form-control(
+                        placeholder='Uveďte důvod zvyšení výsledku hospodaření...',
+                        type='text',
+                        required='')
+
+				.form-group.col-md-6
+					label
+						| Částka zvýšení
+					input#castkaZvyseni3.form-control(
+                        placeholder='Uveďte částku zvyšující výsledek hospodaření...',
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                        type='text')
+				br
+			button.btn.btn-outline-danger(onclick="$('#zvyseni4').slideDown();") + Přidat zvýšení
+
+		// 4.zvýšení
+		#zvyseni4.none(style='margin-top:10px;')
+			hr
+			button#odebrat4.btn.btn-outline-danger.pull-right(onclick="$('#zvyseni4').slideUp();") - Odebrat zvýšení
+			h2 4.zvýšení
+			.form-row
+				.form-group.col-md-6
+					label
+						| Důvod zvyšení výsledku hospodaření
+					input#duvodZvyseni4.form-control(
+                        placeholder='Uveďte důvod zvyšení výsledku hospodaření...',
+                        type='text',
+                        required='')
+
+				.form-group.col-md-6
+					label
+						| Částka zvýšení
+					input#castkaZvyseni4.form-control(
+                        placeholder='Uveďte částku zvyšující výsledek hospodaření...',
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                        type='text')
+				br

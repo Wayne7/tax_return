@@ -1,0 +1,159 @@
+h3.otazka Ostatní
+br
+.form-group
+
+	label Kraj
+		font(color="red") * &nbsp
+	select#kraj.form-control
+		option(value='') Vyberte kraj...
+		option(value='hlavní město Prahu') hlavní město Praha
+		option(value='Středočeský kraj') Stredočeský kraj
+		option(value='Jihočeský kraj') Jihočeský kraj
+		option(value='Plzeňský kraj') Plzeňský kraj
+		option(value='Karlovarský kraj') Karlovarský kraj
+		option(value='Ústecký kraj') Ústecký kraj
+		option(value='Liberecký kraj') Liberecký kraj
+		option(value='Královéhradecký kraj') Královéhradecký kraj
+		option(value='Pardubický kraj') Pardubický kraj
+		option(value='Kraj Vysočina') Kraj Vysočina
+		option(value='Jihomoravský kraj') Jihomoravský kraj
+		option(value='Olomoucký kraj') Olomoucký kraj
+		option(value='Moravskoslezský kraj') Moravskoslezský kraj
+		option(value='Zlínský kraj') Zlínský kraj
+		option(value='Specializovaný finančí úřad') Specializovaný finančí úřad
+.form-group
+	label Územní pracoviště
+		font(color="red") * &nbsp
+	select#pracoviste.form-control
+		option(value='') Vyberte územní pracoviště
+.form-group
+	label Typ přiznání
+		font(color="red") * &nbsp
+	select#typPriznani.form-control
+		option(value='') Vyberte jednu z možností...
+		option(value='Řádné') Řádné
+		option(value='Opravné') Opravné
+.form-group
+	label Kód rozlišení DAP
+		font(color="red") * &nbsp
+	select#kodRozliseni.form-control
+		option(value='') Vyberte jednu z možností...
+		option(value='A') A - do 30 dnů ode dne účinnosti rozhodnutí o úpadku
+		option(value='B') B - do 15 dnů ode dne předložení konečné zprávy
+		option(value='G') G - insolvence
+		option(value='I') I - úmrtí – do 3 měsíců ode dne smrti
+		option(value='N') N - do 30 dnů ode dne skončení řízení o pozůstalosti
+		option(value='O') O - do 15 dnů ode dne předložení řádné zprávy o zpeněžování majetku likvidační podstaty nebo jeho části soudu
+.form-row
+	div(style='margin-left: 5px; margin-right: 10px;')
+		label Začátek zdaňovacího období:
+			font(color="red") * &nbsp
+	.form-group.col-md-2
+		select#denOd.form-control
+			option(value='1.', selected='') 1
+			option(value='2.') 2
+			option(value='3.') 3
+			option(value='4.') 4
+			option(value='5.') 5
+			option(value='6.') 6
+			option(value='7.') 7
+			option(value='8.') 8
+			option(value='9.') 9
+			option(value='10.') 10
+			option(value='11.') 11
+			option(value='12.') 12
+			option(value='13.') 13
+			option(value='14.') 14
+			option(value='15.') 15
+			option(value='16.') 16
+			option(value='17.') 17
+			option(value='18.') 18
+			option(value='19.') 19
+			option(value='20.') 20
+			option(value='21.') 21
+			option(value='22.') 22
+			option(value='23.') 23
+			option(value='24.') 24
+			option(value='25.') 25
+			option(value='26.') 26
+			option(value='27.') 27
+			option(value='28.') 28
+			option(value='29.') 29
+			option(value='30.') 30
+			option(value='31.') 31
+	.form-group.col-md-2
+		select#mesicOd.form-control
+			option(value='1.', selected='') Leden
+			option(value='2.') Únor
+			option(value='3.') Březen
+			option(value='4.') Duben
+			option(value='5.') Květen
+			option(value='6.') Červen
+			option(value='7.') Červenec
+			option(value='8.') Srpen
+			option(value='9.') Září
+			option(value='10.') Říjen
+			option(value='11.') Listopad
+			option(value='12.') Prosinec
+	.form-group.col-md-2
+		select#rokOd.form-control
+			option(value='2018', selected='') 2018
+			option(value='2017') 2017
+			option(value='2016') 2016
+			option(value='2015') 2015
+	div(style='margin-left: 5px; margin-right: 25px;')
+		label Konec zdaňovacího období:
+			font(color="red") * &nbsp
+	.form-group.col-md-2
+		select#denDo.form-control
+			option(value='1.') 1
+			option(value='2.') 2
+			option(value='3.') 3
+			option(value='4.') 4
+			option(value='5.') 5
+			option(value='6.') 6
+			option(value='7.') 7
+			option(value='8.') 8
+			option(value='9.') 9
+			option(value='10.') 10
+			option(value='11.') 11
+			option(value='12.') 12
+			option(value='13.') 13
+			option(value='14.') 14
+			option(value='15.') 15
+			option(value='16.') 16
+			option(value='17.') 17
+			option(value='18.') 18
+			option(value='19.') 19
+			option(value='20.') 20
+			option(value='21.') 21
+			option(value='22.') 22
+			option(value='23.') 23
+			option(value='24.') 24
+			option(value='25.') 25
+			option(value='26.') 26
+			option(value='27.') 27
+			option(value='28.') 28
+			option(value='29.') 29
+			option(value='30.') 30
+			option(value='31.', selected='') 31
+	.form-group.col-md-2
+		select#mesicDo.form-control
+			option(value='1.') Leden
+			option(value='2.') Únor
+			option(value='3.') Březen
+			option(value='4.') Duben
+			option(value='5.') Květen
+			option(value='6.') Červen
+			option(value='7.') Červenec
+			option(value='8.') Srpen
+			option(value='9.') Září
+			option(value='10.') Říjen
+			option(value='11.') Listopad
+			option(value='12.', selected='') Prosinec
+	.form-group.col-md-2
+		select#rokDo.form-control
+			option(value='2018', selected='') 2018
+			option(value='2017') 2017
+			option(value='2016') 2016
+			option(value='2015') 2015

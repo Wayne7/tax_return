@@ -1,0 +1,78 @@
++otazka('Byl jsem v loni ženatý/vdaná a partnerovy příjmy nepřesáhly 68 tisíc Kč   ', 'Sleva na manželku/manžela', 'Zákon umožňuje využít slevu na manželku/manžela žijící s poplatníkem ve společné domácnosti. K uplatnění této slevy nesmí příjmy protějšku poplatníka přesáhnout                    hranici 68 000 Kč za rok. Stejně jako v případě slevy na poplatníka, tak i sleva                    na manželku/manžela činí 24 840 Kč. Pokud je manžel/manželka držitelem průkazu                    ZTP/P, zvyšuje se sleva na dvojnásobek. V případě, že manželství netrvalo po celý kalendářní rok, sleva za jeden měsíc činí dvanáctinu celkové slevy, tedy 2 070 Kč.')
++vyber("$('#div12').slideDown();")
+
+#div12.none
+  .form-group
+   label
+    | Kolik měsíců trvalo v uplynulém roce manželství?
+    font(color="red") * &nbsp
+    +napoveda('Měsíců manželství', 'Vyberte počet měsíců loňského roku, během nichž trvalo Vaše manželství.')
+
+   select#pocetMesicuManzelstvi.form-control.form-control-lg(
+       name='pocetMesicuManzelstvi',
+       required='required')
+    option(value='0') Počet měsíců manželství...
+      option(value='1') 1
+      option(value='2') 2
+      option(value='3') 3
+      option(value='4') 4
+      option(value='5') 5
+      option(value='6') 6
+      option(value='7') 7
+      option(value='8') 8
+      option(value='9') 9
+      option(value='10') 10
+      option(value='11') 11
+      option(value='12') 12
+
+  .form-row
+   .form-group.col-md-6
+    label
+     | Jméno a příjmení manželky/manžela
+     font(color="red") * &nbsp
+     +napoveda('Jméno a příjmení manželky/manžela', 'Uveďte jméno a příjmení vašeho partnera')
+
+    input#jmenoAprijemniPartnera.form-control.form-control-lg(
+        placeholder='Uveďte jméno a příjmení manžela/manželky...',
+        type='text',
+        required='')
+
+   .form-group.col-md-6
+    label
+     | Rodné číslo manžela/manželky
+     font(color="red") * &nbsp
+     +napoveda('Rodné číslo manžela/manželky', 'Uveďte rodné číslo vašho partnera. <br><b>Rodné číslo uvádějte S LOMÍTKEM</b>')
+
+    input#RCPartnera.form-control.form-control-lg(
+        placeholder='Uveďte rodné číslo manžela/manželky s lomítkem...',
+        type='text',
+        required='')
+   button#new-board-btn.btn.btn-outline-danger.btn-lg.btn-block(
+       type='button',
+       onclick="$('#div12_1').slideDown();")
+       | Můj manžel/manželka je držitelem průkazu ZTP
+br
+#div12_1.none
+    .form-group
+      br
+      label
+       | Počet měsíců v uplynulém roce, během nichž byl(a) držetelem průkazu ZTP
+       font(color="red") * &nbsp
+       +napoveda('Měsíců partnera se ZTP/P', 'Vyberte počet měsíců uplynulého roku, během nichž byl Váš partner držitelem průkazu ZTP/P.')
+
+    select#pocetMesicuZTPmanzel.form-control.form-control-lg(
+         name='pocetMesicuZTPmanzel',
+         required='required')
+      option(value='0') Počet měsíců se ZTP/P...
+      option(value='1') 1
+      option(value='2') 2
+      option(value='3') 3
+      option(value='4') 4
+      option(value='5') 5
+      option(value='6') 6
+      option(value='7') 7
+      option(value='8') 8
+      option(value='9') 9
+      option(value='10') 10
+      option(value='11') 11
+      option(value='12') 12

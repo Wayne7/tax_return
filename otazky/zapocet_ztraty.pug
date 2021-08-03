@@ -1,0 +1,222 @@
++otazka('Uplatňuji zápočet ztráty z minulosti   ', 'Zápočet ztráty z minulosti', 'nějaký popis napoveda')
++vyber("$('#div26').slideDown();")
+
+#div26.none
+		.form-group
+			label Rok, ze kterého ztrata pochází
+				font(color="red") * &nbsp
+			select#rokZtraty1.form-control.form-control-lg(name='rokZtraty1', required='required')
+				option(value='0') Vyberte rok, ze kterého ztrata pochází...
+				option(value='2016') 2016
+				option(value='2015') 2015
+				option(value='2014') 2014
+				option(value='2013') 2013
+				option(value='2012') 2012
+		.form-row
+			.form-group.col-md-6
+				label
+					| Výše ztráty
+					font(color="red") * &nbsp
+					+napoveda('Výše ztráty', 'Prosím uvádějte částky v celých Kč.')
+
+				input#ztrataCastka1.form-control(
+					placeholder='Uveďte ztrátu v daném roce...',
+					type='text',
+					required='')
+
+			.form-group.col-md-6
+				label
+					| Část již odečtená v uplynulých letech
+					font(color="red") * &nbsp
+					+napoveda('Část již odečtená v uplynulých letech', 'Prosím uvádějte částky v celých Kč.')
+
+				input#odectenaCast1.form-control(
+					placeholder='Část již odečtená v uplynulých letech...',
+					type='text')
+			br
+		// 2.ztráta
+		button#pridat1.btn.btn-outline-danger(onclick="$('#ztrata2').slideDown();") + Přidat ztrátu
+		#ztrata2.none
+			hr
+			button#odebrat2.btn.btn-outline-danger.pull-right(onclick="$('#ztrata2').slideUp();") - Odebrat ztrátu
+			h2 2.ztráta
+			.form-group
+				label Rok, ze kterého ztrata pochází
+					font(color="red") * &nbsp
+				select#rokZtraty2.form-control.form-control-lg(name='rokZtraty2', required='required')
+					option(value='0') Vyberte rok, ze kterého ztrata pochází...
+					option(value='2016') 2016
+					option(value='2015') 2015
+					option(value='2014') 2014
+					option(value='2013') 2013
+					option(value='2012') 2012
+			.form-row
+				.form-group.col-md-6
+					label
+						| Vyše ztráty
+						font(color="red") * &nbsp
+					input#ztrataCastka2.form-control(
+                        placeholder='Uveďte ztrátu v daném roce...',
+                        type='text',
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                        required='')
+
+				.form-group.col-md-6
+					label
+						| Část již odečtená v uplynulých letech
+						font(color="red") * &nbsp
+					input#odectenaCast2.form-control(
+                        placeholder='Část již odečtená v uplynulých letech...',
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                        type='text')
+				br
+			button.btn.btn-outline-danger(onclick="$('#ztrata3').slideDown();") + Přidat ztrátu
+		// 3.ztráta
+		#ztrata3.none(style='margin-top:10px;')
+			hr
+			button#odebrat3.btn.btn-outline-danger.pull-right(onclick="$('#ztrata3').slideUp();") - Odebrat ztrátu
+			h2 3.ztráta
+			.form-group
+				label Rok, ze kterého ztrata pochází
+					font(color="red") * &nbsp
+				select#rokZtraty3.form-control.form-control-lg(name='rokZtraty3', required='required')
+					option(value='0') Vyberte rok, ze kterého ztrata pochází...
+					option(value='2016') 2016
+					option(value='2015') 2015
+					option(value='2014') 2014
+					option(value='2013') 2013
+					option(value='2012') 2012
+
+			.form-row
+				.form-group.col-md-6
+					label
+						| Vyše ztráty
+						font(color="red") * &nbsp
+					input#ztrataCastka3.form-control(
+                        placeholder='Uveďte ztrátu v daném roce...',
+                        type='text',
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                        required='')
+
+				.form-group.col-md-6
+					label
+						| Část již odečtená v uplynulých letech
+						font(color="red") * &nbsp
+					input#odectenaCast3.form-control(placeholder='Část již odečtená v uplynulých letech...', type='text')
+				br
+			button.btn.btn-outline-danger(onclick="$('#ztrata4').slideDown();") + Přidat ztrátu
+
+		// 4.ztráta
+		#ztrata4.none(style='margin-top:10px;')
+			hr
+			button#odebrat4.btn.btn-outline-danger.pull-right(onclick="$('#ztrata4').slideUp();") - Odebrat ztrátu
+			h2 4.ztráta
+			.form-group
+				label Rok, ze kterého ztrata pochází
+					font(color="red") * &nbsp
+				select#rokZtraty4.form-control.form-control-lg(
+                    name='rokZtraty4',
+                    required='required')
+					option(value='0') Vyberte rok, ze kterého ztrata pochází...
+					option(value='2016') 2016
+					option(value='2015') 2015
+					option(value='2014') 2014
+					option(value='2013') 2013
+					option(value='2012') 2012
+
+			.form-row
+				.form-group.col-md-6
+					label
+						| Vyše ztráty
+						font(color="red") * &nbsp
+					input#ztrataCastka4.form-control(
+                        placeholder='Uveďte ztrátu v daném roce...',
+                        type='text',
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                        required='')
+
+				.form-group.col-md-6
+					label
+						| Část již odečtená v uplynulých letech
+						font(color="red") * &nbsp
+					input#odectenaCast4.form-control(
+                        placeholder='Část již odečtená v uplynulých letech...',
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                        type='text')
+				br
+			button.btn.btn-outline-danger(onclick="$('#ztrata5').slideDown();") + Přidat ztrátu
+
+		// 5.ztráta
+		#ztrata5.none(style='margin-top:10px;')
+			hr
+			button#odebrat5.btn.btn-outline-danger.pull-right(onclick="$('#ztrata5').slideUp();") - Odebrat ztrátu
+			h2 5.ztráta
+			.form-group
+				label Rok, ze kterého ztrata pochází
+					font(color="red") * &nbsp
+				select#rokZtraty5.form-control.form-control-lg(name='rokZtraty5', required='required')
+					option(value='0') Vyberte rok, ze kterého ztrata pochází...
+					option(value='2016') 2016
+					option(value='2015') 2015
+					option(value='2014') 2014
+					option(value='2013') 2013
+					option(value='2012') 2012
+
+			.form-row
+				.form-group.col-md-6
+					label
+						| Vyše ztráty
+						font(color="red") * &nbsp
+					input#ztrataCastka5.form-control(
+                        placeholder='Uveďte ztrátu v daném roce...',
+                        type='text',
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                        required='')
+
+				.form-group.col-md-6
+					label
+						| Část již odečtená v uplynulých letech
+						font(color="red") * &nbsp
+					input#odectenaCast5.form-control(
+                        placeholder='Část již odečtená v uplynulých letech...',
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                        type='text')
+				br
+			button.btn.btn-outline-danger(onclick="$('#ztrata6').slideDown();") + Přidat ztrátu
+
+		// 6.ztráta
+		#ztrata6.none(style='margin-top:10px;')
+			hr
+			button#odebrat5.btn.btn-outline-danger.pull-right(onclick="$('#ztrata6').slideUp();") - Odebrat ztrátu
+			h2 6.ztráta
+			.form-group
+				label Rok, ze kterého ztrata pochází
+					font(color="red") * &nbsp
+				select#rokZtraty6.form-control.form-control-lg(name='rokZtraty6', required='required')
+					option(value='0') Vyberte rok, ze kterého ztrata pochází...
+					option(value='2016') 2016
+					option(value='2015') 2015
+					option(value='2014') 2014
+					option(value='2013') 2013
+					option(value='2012') 2012
+
+			.form-row
+				.form-group.col-md-6
+					label
+						| Vyše ztráty
+						font(color="red") * &nbsp
+					input#ztrataCastka6.form-control(
+                        placeholder='Uveďte ztrátu v daném roce...',
+                        type='text',
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                        required='')
+
+				.form-group.col-md-6
+					label
+						| Část již odečtená v uplynulých letech
+						font(color="red") * &nbsp
+					input#odectenaCast6.form-control(
+                        placeholder='Část již odečtená v uplynulých letech...',
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                        type='text')
+				br

@@ -1,0 +1,207 @@
++otazka('Mám komanditní nebo veřejnou obchodní společnost   ', 'Komanditní společnost nebo VOS', 'V případě, že jste společníkem veřejné obchodní společnosti nebo komplementář komanditní společnosti uveďte příjmy vaší společnosti a podíl, jaký ve společnosti máte.')
++vyber("$('#div20').slideDown();")
+
+#div20.none
+ .form-group
+ .form-row
+  .form-group.col-md-6
+   label
+    | Výsledek hospodaření před zdaněním
+    font(color="red") * &nbsp
+    +napoveda('Výsledek hospodaření před zdaněním', 'Uveďte výsledek hospodaření společnosti před zdaněním. Prosím uvádějte částky v celých Kč.')
+
+   input#vysledekHospodareniVOS.form-control(
+       placeholder='Výsledek hospodaření před zdaněním...',
+       type='text',
+       oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+       required='')
+
+  .form-group.col-md-6
+   label
+    | Výše podílu v procentech
+    font(color="red") * &nbsp
+    +napoveda('Výše podílu v procentech', 'Váš podíl jako společníka veřejné obchodní společnosti nebo komplementáře komanditní společnosti. Prosím uvádějte v PROCENTECH!')
+
+   input#vysePodiluVOS.form-control(
+       placeholder='Výše podílu v procentech...',
+       type='text',
+       onkeyup= "procenta()",
+       oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+       required='')
+
+ hr
+ h4 Informace o 1. společníkovi
+ .form-group
+ .form-row
+  .form-group.col-md-6
+   label
+    | Jméno společníka &nbsp
+    +napoveda('Jméno společníka', 'Uveďte jméno vašeho společníka')
+
+   input#jmenoSpolecnika1.form-control(
+       placeholder='Jméno společníka...',
+       type='text',
+       required='')
+
+  .form-group.col-md-6
+   label
+    | Příjmení společníka &nbsp
+    +napoveda('Příjmení společníka', 'Uveďte příjmení vašeho společníka')
+
+   input#prijmeniSpolecnika1.form-control(
+       placeholder='Příjmení společníka...',
+       type='text',
+       required='')
+
+  .form-group.col-md-4
+   label
+    | Daňové identifikační číslo (DIČ) &nbsp
+    +napoveda('Daňové identifikační číslo (DIČ)', 'Daňové identifikační číslo (DIČ) je jedinečnou a jednoznačnou identifikací každého daňového subjektu, právnické nebo fyzické osoby, která je plátcem daně (daňovým poplatníkem). DIČ se sestává z kódu země a z číselné kmenové části - identifikátoru. U poplatníka fyzické osoby je identifikátorem obvykle jeho rodné číslo.')
+
+   input#DICSpolecnika1.form-control(
+       placeholder='Daňové identifikační číslo (DIČ)...',
+       type='text',
+       maxlength="12",
+       value="CZ")
+
+  .form-group.col-md-4
+   label
+    | Podíl na příjmech (v procentech) &nbsp
+    +napoveda('Podíl na příjmech (v procentech)', 'Uveď podíl vašeho společníka na příjmech. <br><b>Hodnotu uvádějte v procentech (čísla 0-100)!</b>')
+
+   input#podilNaPrijmechSpolecnika1.form-control(
+       placeholder='Podíl na příjmech (v procentech)',
+       type='text',
+       onkeyup= "procenta()",
+       oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+  .form-group.col-md-4
+   label
+    | Podíl na výdajích (v procentech) &nbsp
+    +napoveda('Podíl na výdajích (v procentech)', 'Uveď podíl vašeho společníka na výdajích. <br><b>Hodnotu uvádějte v procentech (čísla 0-100)!</b>')
+
+   input#podilNaVydajichSpolecnika1.form-control(
+       placeholder='Podíl na výdajích (v procentech)...',
+       type='text',
+       onkeyup= "procenta()",
+       oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+  // 2.spolecnik
+  button#pridat1.btn.btn-outline-danger(
+       onclick="$('#spolecnik2').slideDown();") + Přidat společníka
+
+#spolecnik2.none
+    hr
+    button#odebrat2.btn.btn-outline-danger.pull-right(
+        onclick="$('#spolecnik2').slideUp();") - Odebrat společníka
+
+    h4 Informace o 2. společníkovi
+    .form-group
+    .form-row
+     .form-group.col-md-6
+      label
+        | Jméno společníka
+
+      input#jmenoSpolecnika2.form-control(
+        placeholder='Výsledek hospodaření před zdaněním...',
+        type='text',
+        required='')
+
+     .form-group.col-md-6
+      label
+        | Příjmení společníka
+
+      input#prijmeniSpolecnika2.form-control(
+        placeholder='Výše podílu v procentech...',
+        type='text',
+        required='')
+
+     .form-group.col-md-4
+      label
+        | Daňové identifikační číslo (DIČ)
+
+      input#DICSpolecnika2.form-control(
+        placeholder='Daňové identifikační číslo (DIČ)...',
+        type='text',
+        maxlength="12",
+        value="CZ")
+
+     .form-group.col-md-4
+      label
+        | Podíl na příjmech (v procentech)
+
+      input#podilNaPrijmechSpolecnika2.form-control(
+        placeholder='Podíl na příjmech (v procentech)',
+        type='text',
+        onkeyup= "procenta()",
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+     .form-group.col-md-4
+      label
+        | Podíl na výdajích (v procentech)
+
+      input#podilNaVydajichSpolecnika2.form-control(
+        placeholder='Podíl na výdajích (v procentech)...',
+        type='text',
+        onkeyup= "procenta()",
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+    //3.spolecnik
+    button#pridat1.btn.btn-outline-danger(
+            onclick="$('#spolecnik3').slideDown();") + Přidat společníka
+
+#spolecnik3.none
+    hr
+    button#odebrat3.btn.btn-outline-danger.pull-right(
+        onclick="$('#spolecnik3').slideUp();") - Odebrat společníka
+
+    h4 Informace o 3. společníkovi
+    .form-group
+    .form-row
+      .form-group.col-md-6
+         label
+          | Jméno společníka
+
+         input#jmenoSpolecnika3.form-control(
+            placeholder='Výsledek hospodaření před zdaněním...',
+            type='text',
+            required='')
+
+      .form-group.col-md-6
+       label
+          | Příjmení společníka
+
+       input#prijmeniSpolecnika3.form-control(
+            placeholder='Výše podílu v procentech...',
+            type='text',
+            required='')
+
+      .form-group.col-md-4
+       label
+          | Daňové identifikační číslo (DIČ)
+
+       input#DICSpolecnika3.form-control(
+            placeholder='Daňové identifikační číslo (DIČ)...',
+            type='text',
+            maxlength="12",
+            value="CZ")
+
+      .form-group.col-md-4
+       label
+            | Podíl na příjmech (v procentech)
+
+       input#podilNaPrijmechSpolecnika3.form-control(
+            placeholder='Podíl na příjmech (v procentech)',
+            type='text',
+            onkeyup= "procenta()",
+            oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+      .form-group.col-md-4
+       label
+            | Podíl na výdajích (v procentech)
+
+       input#podilNaVydajichSpolecnika3.form-control(
+            placeholder='Podíl na výdajích (v procentech)...',
+            type='text',
+            onkeyup= "procenta()",
+            oninput="this.value=this.value.replace(/[^0-9]/g,'');")

@@ -1,0 +1,15 @@
++otazka('Měl(a) jsem v letošním roce příjmy z kapitálového majetku   ', 'Příjmy z kapitálového majetku', 'U kapitálového majetku je nutno uvést pouze celkové příjmy z kapitálového majetku. Jde o všechny příjmy, které plynou z držby obchodních podílů ve firmách, akcií, peněžních vkladů v bance, půjček a podobně. U tohoto druhu příjmů není možné uplatňovat žádné výdaje.')
++vyber("$('#div10_1').slideDown();")
+
+#div10_1.none
+  .form-group
+   label
+     | Příjmy z kapitálového majetku
+     font(color="red") * &nbsp
+     +napoveda('Příjmy z kapitálového majetku', 'Prosím uvádějte částky v celých Kč.')
+
+   input#kapitalMajetekPrijem.form-control.form-control-lg(
+       placeholder='Příjmy z kapitálového majetku...',
+       type='text',
+       oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+       required='')

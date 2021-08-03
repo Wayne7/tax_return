@@ -1,0 +1,21 @@
++otazka('Zahájil, přerušil, ukončil či obnovil jsem v letoším roce podnikaní   ', 'Údaje o samostatné činnosti', 'Vyplňujte údaje pouze tehdy, pokud jste v roce 2018 zahájil(a), přerušil(a), ukončila(a) či obnovil(a) své podnikání <br><b>Pište prosím datum změny. Například: 1.1.2018</b>')
++vyber("$('#div8').slideDown();")
+
+#div8.none
+ // Údaje o samostatné činnosti
+ .form-row
+  .form-group.col-md-3.date
+   input#datumZahajeniCinnosti.datepicker.form-control(
+       placeholder='Datum zahájení činnosti...')
+
+  .form-group.col-md-3
+   input#datumPreruseniCinnosti.datepicker.form-control(
+       placeholder='Datum přerušení činnosti...')
+
+  .form-group.col-md-3
+   input#datumUkonceniCinnosti.datepicker.form-control(
+       placeholder='Datum ukončení činnosti...')
+
+  .form-group.col-md-3
+   input#datumObnoveniCinnosti.datepicker.form-control(
+       placeholder='Datum obnovení činnosti...')

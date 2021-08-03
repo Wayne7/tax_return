@@ -1,0 +1,646 @@
++otazka('Byl(a) jsem OSVČ a uplatňuji výdaje jako procento z příjmů   ', 'Uplatnění výdajů', 'Poplatník v tomto případě neuplatňujete skutečné výdaje, díky čemuž je v průběhu roku nemusí sledovat. Výdaje se počítají jako určité procento z příjmů. Kromě příjmů je tedy nutné vybrat sazbu výdajů, kde jsou na výběr čtyři možnosti.')
+.vyber
+	label.buttonRadio
+		input.my_features(
+            type='radio',
+            name='radio1',
+            value='0',
+            data-id='div1',
+            autocomplete='off',
+            style='visibility:hidden;')
+		| ANO
+	label.buttonRadio
+		input.my_features(
+            type='radio',
+            name='radio1',
+            value='0',
+            data-id='div0',
+            autocomplete='off',
+            style='visibility:hidden;')
+		| NE
+br
+hr
+// SAZBA
+#div0.none
+	.form-group
+		label
+			| Sazba výdajů
+			font(color="red") * &nbsp
+			+napoveda('Sazba výdajů', '<b>30%</b> - nejvýše 300 000 Kč za rok, příjmy z pronájmu a příjmy z nájmu majetku zařazeného v obchodním majetku <br> <b>40%</b> - nejvýše 400 000 Kč za rok, příjmy ze samostatné činnosti, s výjimkou příjmů společníka veřejné obchodní společnosti a komplementáře komanditní společnosti a příjmů autora <br><b>60%</b> - nejvýše 600 000 Kč za rok, příjmy z živností volných, vázaných i koncesovaných<br><b>80%</b> - nejvýše 800 000 Kč za rok, příjmy ze zemědělské výroby, lesního a vodního hospodářství a z příjmů z živnostenského podnikání řemeslného.')
+
+		select#sazba.form-control(
+            name='sazba')
+			option(
+                selected='selected',
+                value='',
+                required='required') Vyberte sazbu...
+			option(
+                value='30') 30%
+			option(
+                value='40') 40%
+			option(
+                value='60') 60%
+			option(
+                value='80') 80%
+
+	.form-row
+		.form-group.col-md-4
+			label
+				| Příjmy
+				font(color="red") * &nbsp
+				+napoveda('Příjmy', 'Prosím uvádějte částky v celých Kč.')
+
+			input#prijmySazba.form-control(
+                placeholder='Vaše příjmy...',
+                type='text',
+                oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                required='')
+
+		.form-group.col-md-4
+			label
+				| Výdaje &nbsp
+				+napoveda('Výdaje', 'Vaše výdaje dle zvolené sazby.')
+
+			input#vydajeSazba.form-control(
+                placeholder='Vaše výdaje...',
+                name='vydajeSazba',
+                type='text',
+                oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                disabled='')
+
+		.form-group.col-md-4
+			label Zaplacené zálohy na daň &nbsp
+				+napoveda('Zaplacené zálohy na daň', 'V případě, že jste měli v průběhu roku povinnost platit zálohy na dani z příjmů, uveďte veškeré zaplacené zálohy. Tato povinnost vyplývá z loňského daňové přiznání (2018).')
+
+			input#zalohySazba.form-control(
+                placeholder='Zaplacené zálohy na daň...',
+                type='text',
+                oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+	.form-group
+		label
+			| Název činnosti
+			font(color="red") * &nbsp
+			+napoveda('Název činnosti', 'Podnikatelské činnosti mají svoji klasifikace CZ NACE. Používá se například pro hledání dotačních titulů. Každý podnik má uveden výčet předmětů činností podle této klasifikace ve firemních databázích.')
+
+		small.form-text.text-muted
+			| Vaši činnost si můžete vyhledat
+			a(
+                href='http://apl.czso.cz/irsw/',
+                target='_blank')  zde.
+
+		input#cinnostSazba.form-control(
+            placeholder='Název vaší činnosti...',
+            type='text')
+
+	// 2.činnost
+	button#pridat1.btn.btn-outline-danger(
+        onclick="$('#cinnost2').slideDown();") + Přidat činnost
+
+	#cinnost2.none
+		hr
+		button#odebrat2.btn.btn-outline-danger.pull-right(
+        	onclick="$('#cinnost2').slideUp();") - Odebrat činnost
+
+		h2 2.činnost
+		.form-group
+			label
+				| Sazba výdajů
+				font(color="red") * &nbsp
+
+			select#sazba2.form-control(name='sazba2')
+				option(
+                    selected='selected',
+                    value='',
+                    required='required') Vyberte sazbu...
+				option(
+                    value='30') 30%
+				option(
+                    value='40') 40%
+				option(
+                    value='60') 60%
+				option(
+                    value='80') 80%
+
+		.form-row
+			.form-group.col-md-6
+				label
+					| Příjmy
+					font(color="red") * &nbsp
+
+				input#prijmySazba2.form-control(
+                    placeholder='Vaše příjmy...',
+                    type='text',
+                    oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                    required='')
+
+			.form-group.col-md-6
+				label
+					| Výdaje
+
+				input#vydajeSazba2.form-control(
+                    placeholder='Vaše výdaje...',
+                    name='vydajeSazba2',
+                    type='text',
+                    oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                    disabled='')
+
+		.form-group
+			label
+				| Název činnosti
+				font(color="red") * &nbsp
+
+			small.form-text.text-muted
+				| Vaši činnost si můžete vyhledat
+				a(
+                    href='http://apl.czso.cz/irsw/',
+                    target='_blank')  zde.
+
+			input#cinnostSazba2.form-control(
+                placeholder='Název vaší činnosti...',
+                required='required')
+
+		button.btn.btn-outline-danger(
+            onclick="$('#cinnost3').slideDown();") + Přidat činnost
+
+	// 3.činnost
+	#cinnost3.none(
+        style='margin-top:10px;')
+		hr
+		button#odebrat3.btn.btn-outline-danger.pull-right(
+            onclick="$('#cinnost3').slideUp();") - Odebrat činnost
+
+		h2 3.činnost
+		.form-group
+			label
+				| Sazba výdajů
+				font(color="red") * &nbsp
+
+			select#sazba3.form-control(
+                name='sazba3',
+                required='required')
+				option(
+                    selected='selected',
+                    value='') Vyberte sazbu...
+				option(
+                    value='30') 30%
+				option(
+                    value='40') 40%
+				option(
+                    value='60') 60%
+				option(
+                    value='80') 80%
+
+		.form-row
+			.form-group.col-md-6
+				label
+					| Příjmy
+					font(color="red") * &nbsp
+
+				input#prijmySazba3.form-control(
+                    placeholder='Vaše příjmy...',
+                    type='text',
+                    oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                    required='required')
+
+			.form-group.col-md-6
+				label
+					| Výdaje
+
+				input#vydajeSazba3.form-control(
+                    placeholder='Vaše výdaje...',
+                    name='vydajeSazba3',
+                    type='text',
+                    oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                    disabled='')
+
+		.form-group
+			label
+				| Název činnosti
+				font(color="red") * &nbsp
+
+			small.form-text.text-muted
+				| Vaši činnost si můžete vyhledat
+				a(
+                    href='http://apl.czso.cz/irsw/',
+                    target='_blank')  zde.
+
+			input#cinnostSazba3.form-control(
+                placeholder='Název vaší činnosti...',
+                required='required')
+
+		button.btn.btn-outline-danger(
+            onclick="$('#cinnost4').slideDown();") + Přidat činnost
+
+	// 4.činnost
+	#cinnost4.none(style='margin-top:10px;')
+		hr
+		button#odebrat4.btn.btn-outline-danger.pull-right(
+            onclick="$('#cinnost4').slideUp();") - Odebrat činnost
+
+		h2 4.činnost
+		.form-group
+			label
+				| Sazba výdajů
+				font(color="red") * &nbsp
+
+			select#sazba4.form-control(
+                name='sazba4',
+                required='required')
+				option(
+                    selected='selected',
+                    value='') Vyberte sazbu...
+				option(
+                    value='30') 30%
+				option(
+                    value='40') 40%
+				option(
+                    value='60') 60%
+				option(
+                    value='80') 80%
+
+		.form-row
+			.form-group.col-md-6
+				label
+					| Příjmy
+					font(color="red") * &nbsp
+
+				input#prijmySazba4.form-control(
+                    placeholder='Vaše příjmy...',
+                    type='text',
+                    oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                    required='required')
+
+			.form-group.col-md-6
+				label
+					| Výdaje
+
+				input#vydajeSazba4.form-control(
+                    placeholder='Vaše výdaje...',
+                    name='vydajeSazba4',
+                    type='text',
+                    oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                    disabled='')
+
+		.form-group
+			label
+				| Název činnosti
+				font(color="red") * &nbsp
+
+			small.form-text.text-muted
+				| Vaši činnost si můžete vyhledat
+				a(
+                    href='http://apl.czso.cz/irsw/',
+                    target='_blank')  zde.
+			input#cinnostSazba4.form-control(
+                placeholder='Název vaší činnosti...',
+                required='required')
+
+// EVIDENCE
+#div1.none
+	.custom-control.custom-radio.hightlight
+		input.my_features(
+            type='radio',
+            data-id='div3',
+            name='radio2',
+            autocomplete='off')
+
+		label(
+            for='evidence')
+			span(
+                style='margin-left:15px;') Vedu daňovou evidenci
+	#div2.none
+		br
+		.form-row
+			.form-group.col-md-6
+				label Příjmy
+					font(color="red") * &nbsp
+				input#prijmyEvidence.form-control(
+                    placeholder='Vaše příjmy...',
+                    name='prijmyEvidence',
+                    type='text',
+                    oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                    required='required')
+
+			.form-group.col-md-6
+				label Výdaje
+					font(color="red") * &nbsp
+				input#vydajeEvidence.form-control(
+                    placeholder='Vaše výdaje...',
+                    name='vydajeEvidence',
+                    type='text',
+                    oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                    required='required')
+
+			.form-group.col-md-6
+				label Zaplacené zálohy na daň
+				input#zalohyEvidence.form-control(
+                    placeholder='Vaše výdaje...',
+                    type='text',
+                    oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+			.form-group.col-md-6
+				label Název činnosti
+					font(color="red") * &nbsp
+				small.form-text.text-muted
+					| Vaši činnost si můžete vyhledat
+					a(
+                   	 	href='http://apl.czso.cz/irsw/',
+                    	target='_blank')  zde.
+				input#cinnostEvidence.form-control(
+                    placeholder='Název vaší činnosti...',
+                    name='cinnostEvidence',
+                    type='text',
+                    required='required')
+
+		// 2.činnost
+		button#pridat1.btn.btn-outline-danger(
+            onclick="$('#cinnost_evidence2').slideDown();") + Přidat činnost
+
+		#cinnost_evidence2.none
+			hr
+			button#odebrat_evidence2.btn.btn-outline-danger.pull-right(
+                onclick="$('#cinnost_evidence2').slideUp();") - Odebrat činnost
+
+			h2 2.činnost
+			.form-row
+				.form-group.col-md-4
+					label Příjmy
+						font(color="red") * &nbsp
+					input#prijmyEvidence2.form-control(
+                        placeholder='Vaše příjmy...',
+                        name='prijmyEvidence2',
+                        type='text',
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                        required='required')
+
+				.form-group.col-md-4
+					label Výdaje
+						font(color="red") * &nbsp
+					input#vydajeEvidence2.form-control(
+                        placeholder='Vaše výdaje...',
+                        name='vydajeEvidence2',
+                        type='text',
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                        required='required')
+
+				.form-group.col-md-4
+					label Název činnosti
+						font(color="red") * &nbsp
+					input#cinnostEvidence2.form-control(
+                        placeholder='Název vaší činnosti...',
+                        name='cinnostEvidence2',
+                        required='required',
+                        type='text')
+
+			button.btn.btn-outline-danger(
+                onclick="$('#cinnost_evidence3').slideDown();") + Přidat činnost
+
+		// 3.činnost
+		#cinnost_evidence3.none
+			hr
+			button#odebrat_evidence3.btn.btn-outline-danger.pull-right(
+                onclick="$('#cinnost_evidence3').slideUp();") - Odebrat činnost
+
+			h2 3.činnost
+			.form-row
+				.form-group.col-md-4
+					label Příjmy
+						font(color="red") * &nbsp
+					input#prijmyEvidence3.form-control(
+                        placeholder='Vaše příjmy...',
+                        name='prijmyEvidence3',
+                        type='text',
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                        required='required')
+
+				.form-group.col-md-4
+					label Výdaje
+						font(color="red") * &nbsp
+					input#vydajeEvidence3.form-control(
+                        placeholder='Vaše výdaje...',
+                        name='vydajeEvidence3',
+                        type='text',
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                        required='required')
+
+				.form-group.col-md-4
+					label Název činnosti
+						font(color="red") * &nbsp
+					input#cinnostEvidence3.form-control(
+                        placeholder='Název vaší činnosti...',
+                        name='cinnostEvidence3',
+                        type='text',
+                        required='required')
+
+			button.btn.btn-outline-danger(
+                onclick="$('#cinnost_evidence4').slideDown();") + Přidat činnost
+
+		// 4.činnost
+		#cinnost_evidence4.none
+			hr
+			button#odebrat_evidence3.btn.btn-outline-danger.pull-right(
+                onclick="$('#cinnost_evidence4').slideUp();") - Odebrat činnost
+
+			h2 4.činnost
+			.form-row
+				.form-group.col-md-4
+					label Příjmy
+						font(color="red") * &nbsp
+					input#prijmyEvidence4.form-control(
+                        placeholder='Vaše příjmy...',
+                        name='prijmyEvidence3',
+                        type='text',
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                        required='required')
+
+				.form-group.col-md-4
+					label Výdaje
+						font(color="red") * &nbsp
+					input#vydajeEvidence4.form-control(
+                        placeholder='Vaše výdaje...',
+                        name='vydajeEvidence3',
+                        type='text',
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                        required='required')
+
+				.form-group.col-md-4
+					label Název činnosti
+						font(color="red") * &nbsp
+
+					input#cinnostEvidence4.form-control(
+                        placeholder='Název vaší činnosti...',
+                        name='cinnostEvidence3',
+                        type='text',
+                        required='required')
+		hr
+		h4 Tabulka pro daňovou evidenci
+		small.form-text.text-muted
+			| Tabulka je určena podnikatelům, kteří vedou daňovou evidenci. K vyplnění kolonek na této straně tedy slouží jako podklad například peněžní deník a jiné účetní dokumenty.
+		br
+		table#tabulka.table.table-sm.table-light.table-striped
+			thead
+				tr
+					th(scope='col')
+					th(scope='col') Na začátku zdaňovacího období
+					th(scope='col') Na konci zdaňovacího období
+			tbody
+				tr
+					th(scope='row')
+						| 1. Hmotný majetek  
+						font(color="red") * &nbsp
+						+napoveda('Hmotný majetek', 'Majetek, který měl pořizovací cenu vyšší než 40 tis. Kč a který se odepisuje (evidence dlouhodobého majetku – inventární karty).')
+
+					td
+						input#hmotnyMajetekPred.form-control.form-control-sm(
+                            placeholder='Prosím uveďte částku v celých Kč...',
+                            name='hmotnyMajetekPred')
+					td
+						input#hmotnyMajetekPo.form-control.form-control-sm(
+                            placeholder='Prosím uveďte částku v celých Kč...',
+                            name='hmotnyMajetekPo')
+				tr
+					th(scope='row')
+						| 2. Peněžní prostředky v hotovosti  
+						+napoveda('Peněžní prostředky v hotovosti', 'Nepovinná položka')
+					td
+						input#vHotovostiPred.form-control.form-control-sm(
+                            placeholder='Prosím uveďte částku v celých Kč...',
+                            name='vHotovostiPred')
+					td
+						input#vHotovostiPo.form-control.form-control-sm(
+                            placeholder='Prosím uveďte částku v celých Kč...',
+                            name='vHotovostiPo')
+				tr
+					th(scope='row')
+						| 3. Peněžní prostředky na bankovních účtech  
+						+napoveda('Peněžní prostředky na bankovních účtech', 'Nepovinná položka')
+					td
+						input#naUctuPred.form-control.form-control-sm(
+                            placeholder='Prosím uveďte částku v celých Kč...',
+                            name='naUctuPred')
+					td
+						input#naUctuPo.form-control.form-control-sm(
+                            placeholder='Prosím uveďte částku v celých Kč...',
+                            name='naUctuPo')
+				tr
+					th(scope='row')
+						| 4. Zásoby  
+						font(color="red") * &nbsp
+						+napoveda('Zásoby', 'Věci, které jsou nakoupeny, ale ještě nebyly použity pro podnikání (skladová evidence – skladní karty).')
+
+					td
+						input#zasobyPred.form-control.form-control-sm(
+                            placeholder='Prosím uveďte částku v celých Kč...',
+                            name='zasobyPred')
+					td
+						input#zasobyPo.form-control.form-control-sm(
+                            placeholder='Prosím uveďte částku v celých Kč...',
+                            name='zasobyPo')
+				tr
+					th(scope='row')
+						| 5. Pohledávky včetně poskytnutých úvěrů a zápůjček  
+						font(color="red") * &nbsp
+						+napoveda('Pohledávky včetně poskytnutých úvěrů a zápůjček', 'Vznikají v případě, že někdo odebíral zboží nebo služby, ale zatím nezaplatil. Může se jednat i o zapůjčené peníze (kniha pohledávek).')
+					td
+						input#pohledavkyPred.form-control.form-control-sm(
+                            placeholder='Prosím uveďte částku v celých Kč...',
+                            name='pohledavkyPred')
+					td
+						input#pohledavkyPo.form-control.form-control-sm(
+                            placeholder='Prosím uveďte částku v celých Kč...',
+                            name='pohledavkyPo')
+				tr
+					th(scope='row')
+						| 6. Ostatní majetek
+						+napoveda('Ostatní majetek', 'Nepovinná položka')
+					td
+						input#ostatniMajetekPred.form-control.form-control-sm(
+                            placeholder='Prosím uveďte částku v celých Kč...',
+                            name='ostatniMajetekPred')
+					td
+						input#ostatniMajetekPo.form-control.form-control-sm(
+                            placeholder='Prosím uveďte částku v celých Kč...',
+                            name='ostatniMajetekPo')
+				tr
+					th(scope='row')
+						| 7. Dluhy včetně přijatých úvěrů a zápůjček
+						font(color="red") * &nbsp 
+						+napoveda('Dluhy včetně přijatých úvěrů a zápůjček', 'Dluhy')
+					td
+						input#dluhyPred.form-control.form-control-sm(
+                            placeholder='Prosím uveďte částku v celých Kč...',
+                            name='dluhyPred')
+					td
+						input#dluhyPo.form-control.form-control-sm(
+                            placeholder='Prosím uveďte částku v celých Kč...',
+                            name='dluhyPo')
+				tr
+					th(scope='row')
+						| 8. Rezervy
+						font(color="red") * &nbsp
+						+napoveda('Rezervy', 'Tvoří se na budoucí opravy majetku (pomocná evidence k rezervám)')
+					td
+						input#rezervyPred.form-control.form-control-sm(
+                            placeholder='Prosím uveďte částku v celých Kč...',
+                            name='rezervyPred')
+					td
+						input#rezervyPo.form-control.form-control-sm(
+                            placeholder='Prosím uveďte částku v celých Kč...',
+                            name='rezervyPo')
+				tr
+					th(scope='row')
+						| 9. Mzdy   
+						+napoveda('Mzdy', 'Úhrn hrubých příjmů všech zaměstnanců.')
+					td(colspan='2')
+						input#mzdy.form-control.form-control-sm(
+                            placeholder='Prosím uveďte částku v celých Kč...',
+                            name='mzdy')
+		br
+		br
+
+	.custom-control.custom-radio.hightlight
+		input.my_features(
+            type='radio',
+            data-id='div2',
+            name='radio2',
+            autocomplete='off')
+		label(for='ucetnictvi')
+			span(style='margin-left:15px;') Vedu účetnictví
+	br
+
+	// ÚČETNICTVÍ
+	#div3.none
+		.form-row
+			.form-group.col-md-6
+				label Příjmy
+					font(color="red") * &nbsp
+				input#prijmyUcet.form-control(
+                    placeholder='Vaše příjmy...',
+                    name='prijmyUcet',
+                    type='text',
+                    oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                    required='required')
+
+			.form-group.col-md-6
+				label Zaplacené zálohy na daň
+				input#zalohyUcet.form-control(
+                    placeholder='Vaše výdaje...',
+                    name='vydajeUcet',
+                    type='text',
+                    oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                    required='required')
+		.form-group
+			label Název činnosti
+				font(color="red") * &nbsp
+			small.form-text.text-muted
+				| Vaši činnost si můžete vyhledat
+				a(
+                    href='http://apl.czso.cz/irsw/',
+                    target='_blank')  zde.
+
+			input#cinnostUcet.form-control(
+                placeholder='Název vaší činnosti...',
+                name='cinnostUcet')
+			br
+			br

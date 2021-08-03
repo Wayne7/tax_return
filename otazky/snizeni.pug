@@ -1,0 +1,99 @@
++otazka('Mám jiné okolnosti SNIŽUJÍCÍ výsledek hospodaření   ', 'Okolnosti snižující výsledek hospodaření', 'V  případě, že snižujete výsledek hospodaření nebo rozdíl mezi příjmy a výdaji o položky podle § 5, § 23 zákona a ostatní úpravy podle zákona, uveďte jejich popis a výši v celých Kč v následujících položkách.<br>Mezi těmito částkami mohou být např.: částky rozdílu mezi účetními a daňovými odpisy, částky úprav při ukončení nebo přerušení činnosti a při změně způsobu uplatňování výdajů. Vedete-li účetnictví, vyčleňte na tento řádek příjmy z kapitálového majetku zahrnuté ve výsledku hospodaření nebo částky podle § 5 odst. 11 zákona.')
++vyber("$('#div28').slideDown();")
+
+#div28.none
+		.form-row
+			.form-group.col-md-6
+				label
+					| Důvod snížení výsledku hospodaření
+					font(color="red") * &nbsp
+					+napoveda('Důvod snížení výsledku hospodaření', 'Prosím napište důvod snížení výsledku hospodaření')
+
+				input#duvodSnizeni1.form-control(
+                    placeholder='Uveďte důvod snížení výsledku hospodaření...',
+                    type='text',
+                    required='')
+
+			.form-group.col-md-6
+				label
+					| Částka snížení
+					font(color="red") * &nbsp
+					+napoveda('Částka snížení', 'Prosím uvádějte částky v celých Kč.')
+
+				input#castkaSnizeni1.form-control(
+                    placeholder='Uveďte částku snižující výsledek hospodaření...',
+                    oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                    type='text')
+			br
+
+		// 2.snížení
+		button#pridat1.btn.btn-outline-danger(onclick="$('#snizeni2').slideDown();") + Přidat snížení
+		#snizeni2.none
+			hr
+			button#odebrat2.btn.btn-outline-danger.pull-right(onclick="$('#snizeni2').slideUp();") - Odebrat snížení
+			h2 2.snížení
+			.form-row
+				.form-group.col-md-6
+					label
+						| Důvod snížení výsledku hospodaření
+					input#duvodSnizeni2.form-control(
+                        placeholder='Uveďte důvod snížení výsledku hospodaření...',
+                        type='text',
+                        required='')
+
+				.form-group.col-md-6
+					label
+						| Částka snížení
+					input#castkaSnizeni2.form-control(
+                        placeholder='Uveďte částku snižující výsledek hospodaření...',
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                        type='text')
+				br
+			button.btn.btn-outline-danger(onclick="$('#snizeni3').slideDown();") + Přidat snížení
+
+		// 3.snížení
+		#snizeni3.none(style='margin-top:10px;')
+			hr
+			button#odebrat3.btn.btn-outline-danger.pull-right(onclick="$('#snizeni3').slideUp();") - Odebrat snížení
+			h2 3.snížení
+			.form-row
+				.form-group.col-md-6
+					label
+						| Důvod snížení výsledku hospodaření
+					input#duvodSnizeni3.form-control(
+                        placeholder='Uveďte důvod snížení výsledku hospodaření...',
+                        type='text',
+                        required='')
+
+				.form-group.col-md-6
+					label
+						| Částka snížení
+					input#castkaSnizeni3.form-control(
+                        placeholder='Uveďte částku snižující výsledek hospodaření...',
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                        type='text')
+				br
+			button.btn.btn-outline-danger(onclick="$('#snizeni4').slideDown();") + Přidat snížení
+
+		// 4.snížení
+		#snizeni4.none(style='margin-top:10px;')
+			hr
+			button#odebrat4.btn.btn-outline-danger.pull-right(onclick="$('#snizeni4').slideUp();") - Odebrat snížení
+			h2 4.snížení
+			.form-row
+				.form-group.col-md-6
+					label
+						| Důvod snížení výsledku hospodaření
+					input#duvodSnizeni4.form-control(
+                        placeholder='Uveďte důvod snížení výsledku hospodaření...',
+                        type='text',
+                        required='')
+
+				.form-group.col-md-6
+					label
+						| Částka snížení
+					input#castkaSnizeni4.form-control(
+                        placeholder='Uveďte částku snižující výsledek hospodaření...',
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+                        type='text')
+				br

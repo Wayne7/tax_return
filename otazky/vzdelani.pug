@@ -1,0 +1,71 @@
++otazka('Platil(a) jsem v uplynulém roce za zkoušky ověřující výsledky dalšího vzdělávání   ', 'Zkoušky ověřující výsledky dalšího vzdělávání', 'Tyto úhrady je možno od zkladu daně odečístí pouze tehdy, pokud nebyly uhrazeny zaměstnavatelem ani nebyly uplatněny jako výdaj z podnikatelské činnosti. Základ daně lze v takovémto případě snížit až o 10 000 Kč. Poplatníci se zdravotním postižením si mohou odečíst maximálně 13 000 Kč. Osoby s těžším zdravotním postižením pak dokonce až 15 000 Kč.')
++vyber("$('#div24').slideDown();")
+
+#div24.none
+  .form-group
+   label Zdravotní omezení
+    font(color="red") * &nbsp
+    +napoveda('Zdravotní omezení', 'Prosím vyberte jednu z uvedených možností.')
+
+   select#zdravotniOmezeni.form-control.form-control-lg(
+         name='zdravotniOmezeni',
+         onchange = 'vzdelani()')
+      option(
+          selected='selected',
+          value='',
+          required='required')
+          | Vyberte jednu z možností...
+      option(
+          value='bez postižení')
+          | bez postižení
+      option(
+          value='se zdravotním postižením')
+          | se zdravotním postižením
+      option(
+          value='s těžším zdravotním postižením')
+          | s těžším zdravotním postižením
+
+  #vzdelani1.form-row.none
+   label
+     | Zaplacený poplatek
+     font(color="red") * &nbsp
+     +napoveda('Částka za zkoušky ověřující výsledky dalšího vzdělávání', 'Prosím uvádějte částky v celých Kč.')
+
+     br
+     small.form-text.text-muted Celkově lze uplatnit maximálně 10 000 Kč!
+   input#vzdelaniBezOmezeni.form-control(
+        placeholder='Uvedte částku za zkoušky ověřující výsledky dalšího vzdělávání...',
+        type='text',
+        onkeyup = 'vzdelani1()',
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+        required='')
+
+  #vzdelani2.form-row.none
+   label
+     | Zaplacený poplatek
+     font(color="red") * &nbsp
+     +napoveda('Částka za zkoušky ověřující výsledky dalšího vzdělávání', 'Prosím uvádějte částky v celých Kč.')
+
+     br
+     small.form-text.text-muted Celkově lze uplatnit maximálně 13 000 Kč!
+   input#vzdelaniSOmezenim.form-control(
+        placeholder='Uvedte částku za zkoušky ověřující výsledky dalšího vzdělávání...',
+        type='text',
+        onkeyup = 'vzdelani2()',
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+        required='')
+
+  #vzdelani3.form-row.none
+   label
+     | Zaplacený poplatek
+     font(color="red") * &nbsp
+     +napoveda('Částka za zkoušky ověřující výsledky dalšího vzdělávání', 'Prosím uvádějte částky v celých Kč.')
+
+     br
+     small.form-text.text-muted Celkově lze uplatnit maximálně 15 000 Kč!
+   input#vzdelanisTezsimOmezeni.form-control(
+        placeholder='Uvedte částku za zkoušky ověřující výsledky dalšího vzdělávání...',
+        type='text',
+        onkeyup = 'vzdelani3()',
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+        required='')

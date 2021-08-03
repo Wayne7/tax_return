@@ -1,0 +1,397 @@
++otazka('Měl(a) jsem v letošním roce jiné příjmy   ', 'Ostatní příjmy', 'Poplatník může mít kromě podnikání či zaměstatní také jiné zdroje příjmu. V případě nájmu je nutno uvést <b>celkové příjmy z nájmu, příjem pouze z nájmu nemovitých věcí (tato hodnota musí být menší nebo shodná s celkovým příjmem z nájmu), celkové výdaje na nájem a zaplacené zálohy na daň.</b>')
++vyber("$('#div11').slideDown();")
+
+#div11.none
+  .form-group
+   label
+    | Zdroj příjmu
+    font(color="red") * &nbsp
+    +napoveda('Zdroj příjmu', 'Vyberte jednu z nabízených možností zdroje příjmů. <br>A – příležitostná činnost <br>B – prodej nemovitostí <br>C – prodej movitých věcí <br>D – prodej cenných papírů  <br>E – příjmy z převodu <br>F – jiné ostatní příjmy <br>G – bezúplatné příjmy')
+   select#zdrojPrijmu.form-control(
+       name='zdrojPrijmuOstatni',
+       onchange='show_KU()')
+    option(
+        selected='selected',
+        value='',
+        required='required')
+        | Vyberte o jaký typ příjmu se jedná...
+    option(
+        value='A – příležitostná činnost')
+        | A – příležitostná činnost
+    option(
+        value='B – prodej nemovitostí')
+        | B – prodej nemovitostí
+    option(
+        value='C – prodej movitých věcí')
+        | C – prodej movitých věcí
+    option(
+        value='D – prodej cenných papírů')
+        | D – prodej cenných papírů
+    option(
+        value='E – příjmy z převodu')
+        | E – příjmy z převodu
+    option(
+        value='F – jiné ostatní příjmy')
+        | F – jiné ostatní příjmy
+    option(
+        value='G – bezúplatné příjmy')
+        | G – bezúplatné příjmy
+
+  .form-group
+   label
+    | Kód
+    font(color="red") * &nbsp
+    +napoveda('Kód', 'Vyberte jednu z nabízených možností. V případě volby "Příjmy ze zemědělské výroby" je Vaše výdaje počítají paušálně jako 80% z příjmů.')
+   select#kodOstatni.form-control(
+       name='kodOstatni')
+    option(
+        selected='selected',
+        value='')
+        | Vyberte kód...
+    option(
+        value='p')
+        | Příjmy ze zemědělské výroby
+    option(
+        value='s')
+        | Příjmy plynoucí z majetku, který je ve společném jmění manželů
+    option(
+        value='z')
+        | Příjmy plynoucí ze zdrojů v zahraničí
+    option(
+        value='n')
+        | Bezúplatný příjem (a zároveň jde o nemovitost)
+    option(
+        value='')
+        | Žádná z uvedených možností
+
+  .form-row
+   .form-group.col-md-4
+    label
+     | Příjmy
+     font(color="red") * &nbsp
+     +napoveda('Příjmy', 'Prosím uvádějte částky v celých Kč.')
+
+    input#prijmyOstatni.form-control(
+        placeholder='Vaše příjmy...',
+        type='text',
+        onkeyup='ostatni_procenta1()',
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+        required='')
+
+   .form-group.col-md-4
+    label
+     | Výdaje
+     font(color="red") * &nbsp
+     +napoveda('Výdaje', 'Prosím uvádějte částky v celých Kč. V případě příjmů ze zemědělské výroby jsou vaše výdaje počítány automaticky jako 80% z příjmů.')
+
+    input#vydajeOstatni.form-control(
+        placeholder='Vaše výdaje...',
+        type='text',
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+        required='')
+
+   #KU.form-group.col-md-4.none
+    label
+     | Číslo rozhodnutí KÚ &nbsp
+     +napoveda('Číslo rozhodnutí KÚ', 'Pokud je uveden druh příjmu B – prodej nemovitosti, nebo se jedná o nemovitost, uveďte číslo rozhodnutí katastrálního úřadu z listu vlastnictví, a přiložte vyrozumění o provedeném vkladu.')
+
+    input#cisloRozhodnutiKU.form-control(
+        placeholder='Číslo rozhodnutí KÚ...',
+        type='text',
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+  // 2.příjem
+  button#pridat1.btn.btn-outline-danger(
+      onclick="$('#ostatni2').slideDown();")
+      | + Přidat činnost
+  #ostatni2.none
+   hr
+   button#odebratOstatni2.btn.btn-outline-danger.pull-right(
+       onclick="$('#ostatni2').slideUp();")
+       | - Odebrat činnost
+
+   h2 2.příjem
+   .form-group
+    label
+     | Zdroj příjmu
+     font(color="red") * &nbsp
+    select#zdrojPrijmu2.form-control(
+        name='zdrojPrijmuOstatni2',
+        onchange='show_KU2()')
+     option(
+         selected='selected',
+         value='',
+         required='required')
+         | Vyberte o jaký typ příjmu se jedná...
+     option(
+         value='A – příležitostná činnost')
+         | A – příležitostná činnost
+     option(
+         value='B – prodej nemovitostí')
+         |  B – prodej nemovitostí
+     option(
+         value='C – prodej movitých věcí')
+         | C – prodej movitých věcí
+     option(
+         value='E – příjmy z převodu')
+         | E – příjmy z převodu
+     option(
+         value='F – jiné ostatní příjmy')
+         | F – jiné ostatní příjmy
+     option(
+         value='G – bezúplatné příjmy')
+         | G – bezúplatné příjmy
+
+   .form-group
+    label
+     | Kód
+     font(color="red") * &nbsp
+    select#kodOstatni2.form-control(
+        name='kodOstatni2')
+     option(
+         selected='selected',
+         value='')
+         | Vyberte kód...
+     option(
+         value='p')
+         | Příjmy ze zemědělské výroby
+     option(
+         value='s')
+         | Příjmy plynoucí z majetku, který je ve společném jmění manželů
+     option(
+         value='z')
+         | Příjmy plynoucí ze zdrojů v zahraničí
+     option(
+         value='n')
+         | Bezúplatný příjem (a zároveň jde o nemovitost)
+     option(
+         value='')
+         | Žádná z uvedených možností
+
+   .form-row
+    .form-group.col-md-4
+     label
+      | Příjmy
+      font(color="red") * &nbsp
+     input#prijmyOstatni2.form-control(
+         placeholder='Vaše příjmy...',
+         type='text',
+         onkeyup='ostatni_procenta2()',
+         oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+         required='')
+
+    .form-group.col-md-4
+     label
+      | Výdaje
+      font(color="red") * &nbsp
+     input#vydajeOstatni2.form-control(
+         placeholder='Vaše výdaje...',
+         type='text',
+         oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+         required='')
+
+    #KU2.form-group.col-md-4.none
+     label
+      | Číslo rozhodnutí KÚ
+     input#cisloRozhodnutiKU2.form-control(
+         placeholder='Číslo rozhodnutí KÚ...',
+         type='text',
+         oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+   button#pridat2.btn.btn-outline-danger(
+       onclick="$('#ostatni3').slideDown();")
+       | + Přidat činnost
+
+  // 3.příjem
+  #ostatni3.none
+   hr
+   button#odebratOstatni3.btn.btn-outline-danger.pull-right(
+       onclick="$('#ostatni3').slideUp();")
+       | - Odebrat činnost
+
+   h2 3.příjem
+   .form-group
+    label
+     | Zdroj příjmu
+     font(color="red") * &nbsp
+    select#zdrojPrijmu3.form-control(
+        name='zdrojPrijmuOstatni3',
+        onchange='show_KU3()')
+     option(
+         selected='selected',
+         value='',
+         required='required')
+         | Vyberte o jaký typ příjmu se jedná...
+     option(
+         value='A – příležitostná činnost')
+         | A – příležitostná činnost
+     option(
+         value='B – prodej nemovitostí')
+         | B – prodej nemovitostí
+     option(
+         value='C – prodej movitých věcí')
+         | C – prodej movitých věcí
+     option(
+         value='E – příjmy z převodu')
+         | E – příjmy z převodu
+     option(
+         value='F – jiné ostatní příjmy')
+         | F – jiné ostatní příjmy
+     option(
+         value='G – bezúplatné příjmy')
+         | G – bezúplatné příjmy
+
+   .form-group
+    label
+     | Kód
+     font(color="red") * &nbsp
+    select#kodOstatni3.form-control(
+        name='kodOstatni3')
+     option(
+         selected='selected',
+         value='')
+         | Vyberte kód...
+     option(
+         value='p')
+         | Příjmy ze zemědělské výroby
+     option(
+         value='s')
+         | Příjmy plynoucí z majetku, který je ve společném jmění manželů
+     option(
+         value='z')
+         | Příjmy plynoucí ze zdrojů v zahraničí
+     option(
+         value='n')
+         | Bezúplatný příjem (a zároveň jde o nemovitost)
+     option(
+         value='')
+         | Žádná z uvedených možností
+
+   .form-row
+    .form-group.col-md-4
+     label
+      | Příjmy
+      font(color="red") * &nbsp
+     input#prijmyOstatni3.form-control(
+         placeholder='Vaše příjmy...',
+         type='text',
+         onkeyup='ostatni_procenta3()',
+         oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+         required='')
+
+    .form-group.col-md-4
+     label
+      | Výdaje¨
+      font(color="red") * &nbsp
+     input#vydajeOstatni3.form-control(
+         placeholder='Vaše výdaje...',
+         type='text',
+         oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+         required='')
+
+    #KU3.form-group.col-md-4.none
+     label
+      | Číslo rozhodnutí KÚ
+     input#cisloRozhodnutiKU3.form-control(
+         placeholder='Číslo rozhodnutí KÚ...',
+         type='text',
+         oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+   button#pridat3.btn.btn-outline-danger(
+       onclick="$('#ostatni4').slideDown();")
+       | + Přidat činnost
+
+  // 4.příjem
+  #ostatni4.none
+   hr
+   button#odebratOstatni3.btn.btn-outline-danger.pull-right(
+       onclick="$('#ostatni4').slideUp();")
+       | - Odebrat činnost
+
+   h2 4.příjem
+   .form-group
+    label
+     | Zdroj příjmu
+     font(color="red") * &nbsp
+    select#zdrojPrijmu4.form-control(
+        name='zdrojPrijmuOstatni4',
+        onchange='show_KU4()')
+     option(
+         selected='selected',
+         value='',
+         required='required')
+         | Vyberte o jaký typ příjmu se jedná...
+     option(
+         value='A – příležitostná činnost')
+         | A – příležitostná činnost
+     option(
+         value='B – prodej nemovitostí')
+         | B – prodej nemovitostí
+     option(
+         value='C – prodej movitých věcí')
+         | C – prodej movitých věcí
+     option(
+         value='E – příjmy z převodu')
+         | E – příjmy z převodu
+     option(
+         value='F – jiné ostatní příjmy')
+         | F – jiné ostatní příjmy
+     option(
+         value='G – bezúplatné příjmy')
+         | G – bezúplatné příjmy
+
+   .form-group
+    label
+     | Kód
+     font(color="red") * &nbsp
+    select#kodOstatni4.form-control(
+        name='kodOstatni4')
+     option(
+         selected='selected',
+         value='')
+         | Vyberte kód...
+     option(
+         value='p')
+         | Příjmy ze zemědělské výroby
+     option(
+         value='s')
+         | Příjmy plynoucí z majetku, který je ve společném jmění manželů
+     option(
+         value='z')
+         | Příjmy plynoucí ze zdrojů v zahraničí
+     option(
+         value='n')
+         | Bezúplatný příjem (a zároveň jde o nemovitost)
+     option(
+         value='')
+         | Žádná z uvedených možností
+
+   .form-row
+    .form-group.col-md-4
+     label
+      | Příjmy
+      font(color="red") * &nbsp
+     input#prijmyOstatni4.form-control(
+         placeholder='Vaše příjmy...',
+         type='text',
+         onkeyup='ostatni_procenta4()',
+         oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+         required='')
+
+    .form-group.col-md-4
+     label
+      | Výdaje
+      font(color="red") * &nbsp
+     input#vydajeOstatni4.form-control(
+         placeholder='Vaše výdaje...',
+         type='text',
+         oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+         required='')
+
+    #KU4.form-group.col-md-4.none
+     label
+      | Číslo rozhodnutí KÚ
+     input#cisloRozhodnutiKU4.form-control(
+         placeholder='Číslo rozhodnutí KÚ...',
+         type='text',
+         oninput="this.value=this.value.replace(/[^0-9]/g,'');")

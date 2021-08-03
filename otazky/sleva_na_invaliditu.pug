@@ -1,0 +1,95 @@
++otazka('Pobírám částečný/úplný invalidní důchod nebo jsem držitelem průkazu ZTP/P   ', 'Základní a rozšířená sleva na invaliditu a ZTP/P', 'Pokud poplatní pobírá invalidní důchod po invaliditu prvního nebo druhého stupně, může uplatnit základní slevu na invaliditu ve výši 2 520 Kč ročně. Do rozšířené slevy na invaliditu pak spadá invaliditu třetího stupně, která činí 5 040 Kč.')
++vyber("$('#div13').slideDown();")
+
+#div13.none
+  button#new-board-btn.btn.btn-outline-danger.btn-lg.btn-block(
+        type='button',
+        onclick="$('#div13_1').slideDown();")
+        | Pobírám částečný invalidní důchod (invalidní důchod I. či II. stupně)
+
+  #div13_1.none
+    .form-group
+     br
+     label
+      | Počet měsíců, v nichž jsem loni pobíral částečný invalidní důchod
+      font(color="red") * &nbsp
+      +napoveda('Invalidní důchod 1. a 2. stupně', 'Vyberte počet měsíců loňského roku, během nichž jste pobíral(a) částečný invalidní důchod (invalidní důchod 1. či 2. stupně). <b>Nárok je nutné doložit rozhodnutím o přiznání invalidního důchodu.</b>')
+
+     select#pocetMesicuZTPcastecnyInvalidni.form-control.form-control-lg(
+         name='pocetMesicuZTPcastecnyInvalidni',
+         required='required')
+      option(value='0') Počet měsíců částečného invalidního důchodu...
+      option(value='1') 1
+      option(value='2') 2
+      option(value='3') 3
+      option(value='4') 4
+      option(value='5') 5
+      option(value='6') 6
+      option(value='7') 7
+      option(value='8') 8
+      option(value='9') 9
+      option(value='10') 10
+      option(value='11') 11
+      option(value='12') 12
+
+  br
+  button#new-board-btn.btn.btn-outline-danger.btn-lg.btn-block(
+        type='button',
+        onclick="$('#div13_2').slideDown();")
+        | Pobírám úplný invalidní důchod (invalidní důchod III. stupně)
+
+  #div13_2.none
+    .form-group
+     br
+     label
+      | Počet měsíců, v nichž jsem loni pobíral úplný invalidní důchod
+      font(color="red") * &nbsp
+      +napoveda('Invalidní důchod 3. stupně', 'Vyberte počet měsíců loňského roku, během nichž jste pobíral(a) úplný invalidní důchod (invalidní důchod 3. stupně). <b>Nárok je nutné doložit rozhodnutím o přiznání invalidního důchodu.</b>')
+
+     select#pocetMesicuZTPuplnyInvalidni.form-control.form-control-lg(
+         name='pocetMesicuZTPuplnyInvalidni',
+         required='required')
+      option(value='0') Počet měsíců úplného invalidního důchodu...
+      option(value='1') 1
+      option(value='2') 2
+      option(value='3') 3
+      option(value='4') 4
+      option(value='5') 5
+      option(value='6') 6
+      option(value='7') 7
+      option(value='8') 8
+      option(value='9') 9
+      option(value='10') 10
+      option(value='11') 11
+      option(value='12') 12
+
+  br
+  button#new-board-btn.btn.btn-outline-danger.btn-lg.btn-block(
+        type='button',
+        onclick="$('#div13_3').slideDown();")
+        | Jsem držitelem průkazu ZTP/P
+
+  #div13_3.none
+    .form-group
+     br
+     label
+      | Počet měsíců, v nichž jsem byl loni držitelem průkazu ZTP/P
+      font(color="red") * &nbsp
+      +napoveda('Držitel průkazu ZTP/P', 'Vyberte počet měsíců loňského roku, během nichž jste byl držitelem průkazu ZTP/P. <b>Nárok je nutné doložit kopií průkazu ZTP/P.</b>')
+
+     select#pocetMesicuZTPpoplatnik.form-control.form-control-lg(
+         name='pocetMesicuZTPpoplatnik',
+         required='required')
+      option(value='0') Počet měsíců ZTP/P...
+      option(value='1') 1
+      option(value='2') 2
+      option(value='3') 3
+      option(value='4') 4
+      option(value='5') 5
+      option(value='6') 6
+      option(value='7') 7
+      option(value='8') 8
+      option(value='9') 9
+      option(value='10') 10
+      option(value='11') 11
+      option(value='12') 12

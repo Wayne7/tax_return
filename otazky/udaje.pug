@@ -1,0 +1,55 @@
+h3.otazka Osobní údaje
+br
+.form-row
+	.form-group.col-md-4
+		label Jméno
+			font(color="red") * &nbsp
+		input#jmeno.form-control(
+            placeholder='Jméno...')
+
+	.form-group.col-md-4
+		label Příjmení
+			font(color="red") * &nbsp
+		input#prijmeni.form-control(
+            placeholder='Příjmení...')
+
+	.form-group.col-md-4
+		label Rodné číslo
+			font(color="red") * &nbsp
+		input#rodneCislo.form-control(
+            placeholder='Rodné číslo (s lomítkem)...',
+			maxlength="11")
+
+	.form-group.col-md-4
+		label Rodné příjmení
+		input#rodnePrijmeni.form-control(
+            placeholder='Rodné příjmení...')
+
+	.form-group.col-md-4
+		label Titul
+		input#titul.form-control(
+            placeholder='Titul...')
+
+	.form-group.col-md-4
+		label Číslo pasu
+		input#cisloPasu.form-control(
+            placeholder='Číslo pasu...',
+            oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+	.form-group.col-md-6
+		label Státní příslušnost
+			font(color="red") * &nbsp
+		.autocomplete
+			input#statniPrislusnost.form-control(
+				type='text',
+				name='statniPrislusnost',
+				placeholder='Státní příslušnost...')
+
+
+	.form-group.col-md-6
+		label DIČ
+			font(color="red") * &nbsp
+		input#DIC.form-control(
+			placeholder='Daňové identifikační číslo...',
+			maxlength="12",
+			value="CZ")

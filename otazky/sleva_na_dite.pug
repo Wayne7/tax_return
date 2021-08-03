@@ -1,0 +1,399 @@
++otazka('V domácnosti se mnou žije dítě do 18 let či student do 26 let   ', 'Sleva na vyživované dítě', 'Vyživovaným dítětem je nezletilé dítě, které sdílí s poplatníkem společnou domácnost. Jedná se o dítě, které nedovršilo 18 let či případně 26 let a stále se připravuje na své další povolání. Od roku 2018 je sleva na první vyživované dítě 15 204 Kč, na druhé vyživované dítě pak 19 404 Kč a u třetího a dalších je výše daňového zvýhodnění 24 204 Kč za rok.')
++vyber("$('#div15').slideDown();")
+
+#div15.none
+		.form-group
+			label Počet měsíců bez ZTP
+				font(color="red") * &nbsp
+				+napoveda('Počet měsíců', 'Uveďte počet měsíců, během nichž s vámi loni dítě žilo ve společné domácnosti.')
+
+			select#pocetMesicuDite1.form-control.form-control-lg(name='pocetMesicuDite1', required='required')
+				option(value='0') Počet měsíců s dítětěm bez ZTP/P...
+				option(value='0') 0
+				option(value='1') 1
+				option(value='2') 2
+				option(value='3') 3
+				option(value='4') 4
+				option(value='5') 5
+				option(value='6') 6
+				option(value='7') 7
+				option(value='8') 8
+				option(value='9') 9
+				option(value='10') 10
+				option(value='11') 11
+				option(value='12') 12
+
+		.form-group
+			label Počet měsíců se ZTP
+				font(color="red") * &nbsp
+				+napoveda('Počet měsíců', 'Uveďte počet měsíců, během nichž s vámi loni dítě žilo ve společné domácnosti.')
+
+			select#pocetMesicuDite1SeZTP.form-control.form-control-lg(name='pocetMesicuDite1', required='required')
+				option(value='0') Počet měsíců s dítětěm se ZTP/P...
+				option(value='0') 0
+				option(value='1') 1
+				option(value='2') 2
+				option(value='3') 3
+				option(value='4') 4
+				option(value='5') 5
+				option(value='6') 6
+				option(value='7') 7
+				option(value='8') 8
+				option(value='9') 9
+				option(value='10') 10
+				option(value='11') 11
+				option(value='12') 12
+
+		.form-row
+			.form-group.col-md-6
+				label
+					| Jméno a příjmení dítěte
+					font(color="red") * &nbsp
+					+napoveda('Jméno a příjmení dítěte', 'Uveďte prosím jméno a příjmení dítěte, na které uplatňujete slevu.')
+
+				input#jmenoDitete1.form-control(
+					placeholder='Jméno a příjmení dítěte...',
+					type='text',
+					required='')
+
+			.form-group.col-md-6
+				label
+					| Rodné číslo dítěte
+					font(color="red") * &nbsp
+					+napoveda('Rodné číslo dítěte', 'Prosím uveďte rodné číslo svého dítěte. <b>RČ uvádějte i s lomítkem!</b>')
+
+				input#RCDitete1.form-control(
+					placeholder='Rodné číslo dítěte (uvádějte s lomítkem)...',
+					name='vydajeSazba',
+					type='text')
+			br
+
+		// 2.dítě
+		button#pridat1.btn.btn-outline-danger(onclick="$('#dite2').slideDown();") + Přidat dítě
+
+		#dite2.none
+			hr
+			button#odebrat2.btn.btn-outline-danger.pull-right(onclick="$('#dite2').slideUp();") - Odebrat dítě
+			h2 2.dítě
+
+			.form-group
+				label Počet měsíců bez ZTP
+					font(color="red") * &nbsp
+				select#pocetMesicuDite2.form-control.form-control-lg(name='pocetMesicuDite2', required='required')
+					option(value='0') Počet měsíců s dítětěm bez ZTP...
+					option(value='0') 0
+					option(value='1') 1
+					option(value='2') 2
+					option(value='3') 3
+					option(value='4') 4
+					option(value='5') 5
+					option(value='6') 6
+					option(value='7') 7
+					option(value='8') 8
+					option(value='9') 9
+					option(value='10') 10
+					option(value='11') 11
+					option(value='12') 12
+
+			.form-group
+				label Počet měsíců se ZTP
+					font(color="red") * &nbsp
+
+				select#pocetMesicuDite2SeZTP.form-control.form-control-lg(name='pocetMesicuDite1', required='required')
+					option(value='0') Počet měsíců s dítětěm se ZTP/P...
+					option(value='0') 0
+					option(value='1') 1
+					option(value='2') 2
+					option(value='3') 3
+					option(value='4') 4
+					option(value='5') 5
+					option(value='6') 6
+					option(value='7') 7
+					option(value='8') 8
+					option(value='9') 9
+					option(value='10') 10
+					option(value='11') 11
+					option(value='12') 12
+
+			.form-row
+				.form-group.col-md-6
+					label
+						| Jméno a příjmení dítěte
+						font(color="red") * &nbsp
+					input#jmenoDitete2.form-control(
+                        placeholder='Jméno a příjmení dítěte...',
+                        type='text',
+                        required='')
+
+				.form-group.col-md-6
+					label
+						| Rodné číslo dítěte
+						font(color="red") * &nbsp
+					input#RCDitete2.form-control(
+                        placeholder='Rodné číslo dítěte (uvádějte s lomítkem)...',
+                        name='vydajeSazba',
+                        type='text')
+				br
+
+			button.btn.btn-outline-danger(onclick="$('#dite3').slideDown();") + Přidat dítě
+
+
+		#dite3.none(style='margin-top:10px;')
+			hr
+			button#odebrat3.btn.btn-outline-danger.pull-right(onclick="$('#dite3').slideUp();") - Odebrat dítě
+			h2 3.dítě
+
+			.form-group
+				label Počet měsíců bez ZTP
+					font(color="red") * &nbsp
+				select#pocetMesicuDite3.form-control.form-control-lg(name='pocetMesicuDite3', required='required')
+					option(value='0') Počet měsíců s dítětěm bez ZTP...
+					option(value='0') 0
+					option(value='1') 1
+					option(value='2') 2
+					option(value='3') 3
+					option(value='4') 4
+					option(value='5') 5
+					option(value='6') 6
+					option(value='7') 7
+					option(value='8') 8
+					option(value='9') 9
+					option(value='10') 10
+					option(value='11') 11
+					option(value='12') 12
+
+			.form-group
+				label Počet měsíců se ZTP
+					font(color="red") * &nbsp
+
+				select#pocetMesicuDite3SeZTP.form-control.form-control-lg(name='pocetMesicuDite1', required='required')
+					option(value='0') Počet měsíců s dítětěm se ZTP/P...
+					option(value='0') 0
+					option(value='1') 1
+					option(value='2') 2
+					option(value='3') 3
+					option(value='4') 4
+					option(value='5') 5
+					option(value='6') 6
+					option(value='7') 7
+					option(value='8') 8
+					option(value='9') 9
+					option(value='10') 10
+					option(value='11') 11
+					option(value='12') 12
+
+			.form-row
+				.form-group.col-md-6
+					label
+						| Jméno a příjmení dítěte
+						font(color="red") * &nbsp
+					input#jmenoDitete3.form-control(
+            placeholder='Jméno a příjmení dítěte...',
+            type='text',
+            required='')
+
+				.form-group.col-md-6
+					label
+						| Rodné číslo dítěte
+						font(color="red") * &nbsp
+					input#RCDitete3.form-control(
+                        placeholder='Rodné číslo dítěte (uvádějte s lomítkem)...',
+                        name='vydajeSazba',
+                        type='text')
+				br
+			button.btn.btn-outline-danger(onclick="$('#dite4').slideDown();") + Přidat dítě
+
+		#dite4.none(style='margin-top:10px;')
+			hr
+			button#odebrat4.btn.btn-outline-danger.pull-right(onclick="$('#dite4').slideUp();") - Odebrat dítě
+			h2 4.dítě
+
+			.form-group
+				label Počet měsíců bez ZTP
+					font(color="red") * &nbsp
+				select#pocetMesicuDite4.form-control.form-control-lg(name='pocetMesicuDite4', required='required')
+					option(value='0') Počet měsíců s dítětěm bez ZTP...
+					option(value='0') 0
+					option(value='1') 1
+					option(value='2') 2
+					option(value='3') 3
+					option(value='4') 4
+					option(value='5') 5
+					option(value='6') 6
+					option(value='7') 7
+					option(value='8') 8
+					option(value='9') 9
+					option(value='10') 10
+					option(value='11') 11
+					option(value='12') 12
+
+			.form-group
+				label Počet měsíců se ZTP
+					font(color="red") * &nbsp
+
+				select#pocetMesicuDite4SeZTP.form-control.form-control-lg(name='pocetMesicuDite1', required='required')
+					option(value='0') Počet měsíců s dítětěm se ZTP/P...
+					option(value='0') 0
+					option(value='1') 1
+					option(value='2') 2
+					option(value='3') 3
+					option(value='4') 4
+					option(value='5') 5
+					option(value='6') 6
+					option(value='7') 7
+					option(value='8') 8
+					option(value='9') 9
+					option(value='10') 10
+					option(value='11') 11
+					option(value='12') 12
+
+			.form-row
+				.form-group.col-md-6
+					label
+						| Jméno a příjmení dítěte
+						font(color="red") * &nbsp
+					input#jmenoDitete4.form-control(
+                        placeholder='Jméno a příjmení dítěte...',
+                        type='text',
+                        required='')
+
+				.form-group.col-md-6
+					label
+						| Rodné číslo dítěte
+						font(color="red") * &nbsp
+					input#RCDitete4.form-control(
+                        placeholder='Rodné číslo dítěte (uvádějte s lomítkem)...',
+                        name='vydajeSazba',
+                        type='text')
+
+				br
+			button.btn.btn-outline-danger(onclick="$('#dite5').slideDown();") + Přidat dítě
+
+		#dite5.none(style='margin-top:10px;')
+			hr
+			button#odebrat5.btn.btn-outline-danger.pull-right(onclick="$('#dite5').slideUp();") - Odebrat dítě
+			h2 5.dítě
+
+			.form-group
+				label Počet měsíců bez ZTP
+					font(color="red") * &nbsp
+				select#pocetMesicuDite5.form-control.form-control-lg(name='pocetMesicuDite5', required='required')
+					option(value='0') Počet měsíců s dítětěm bez ZTP...
+					option(value='0') 0
+					option(value='1') 1
+					option(value='2') 2
+					option(value='3') 3
+					option(value='4') 4
+					option(value='5') 5
+					option(value='6') 6
+					option(value='7') 7
+					option(value='8') 8
+					option(value='9') 9
+					option(value='10') 10
+					option(value='11') 11
+					option(value='12') 12
+
+			.form-group
+				label Počet měsíců se ZTP
+					font(color="red") * &nbsp
+
+				select#pocetMesicuDite5SeZTP.form-control.form-control-lg(name='pocetMesicuDite1', required='required')
+					option(value='0') Počet měsíců s dítětěm se ZTP/P...
+					option(value='0') 0
+					option(value='1') 1
+					option(value='2') 2
+					option(value='3') 3
+					option(value='4') 4
+					option(value='5') 5
+					option(value='6') 6
+					option(value='7') 7
+					option(value='8') 8
+					option(value='9') 9
+					option(value='10') 10
+					option(value='11') 11
+					option(value='12') 12
+
+			.form-row
+				.form-group.col-md-6
+					label
+						| Jméno a příjmení dítěte
+						font(color="red") * &nbsp
+					input#jmenoDitete5.form-control(
+                        placeholder='Jméno a příjmení dítěte...',
+                        type='text',
+                        required='')
+
+				.form-group.col-md-6
+					label
+						| Rodné číslo dítěte
+						font(color="red") * &nbsp
+					input#RCDitete5.form-control(
+                        placeholder='Rodné číslo dítěte (uvádějte s lomítkem)...',
+                        name='vydajeSazba',
+                        type='text')
+
+				br
+			button.btn.btn-outline-danger(onclick="$('#dite6').slideDown();") + Přidat dítě
+
+		#dite6.none(style='margin-top:10px;')
+			hr
+			button#odebrat5.btn.btn-outline-danger.pull-right(onclick="$('#dite6').slideUp();") - Odebrat dítě
+			h2 6.dítě
+
+			.form-group
+				label Počet měsíců bez ZTP
+					font(color="red") * &nbsp
+				select#pocetMesicuDite6.form-control.form-control-lg(name='pocetMesicuDite6', required='required')
+					option(value='0') Počet měsíců s dítětěm bez ZTP...
+					option(value='0') 0
+					option(value='1') 1
+					option(value='2') 2
+					option(value='3') 3
+					option(value='4') 4
+					option(value='5') 5
+					option(value='6') 6
+					option(value='7') 7
+					option(value='8') 8
+					option(value='9') 9
+					option(value='10') 10
+					option(value='11') 11
+					option(value='12') 12
+
+			.form-group
+				label Počet měsíců se ZTP
+					font(color="red") * &nbsp
+				select#pocetMesicuDite6SeZTP.form-control.form-control-lg(name='pocetMesicuDite1', required='required')
+					option(value='0') Počet měsíců s dítětěm se ZTP/P...
+					option(value='0') 0
+					option(value='1') 1
+					option(value='2') 2
+					option(value='3') 3
+					option(value='4') 4
+					option(value='5') 5
+					option(value='6') 6
+					option(value='7') 7
+					option(value='8') 8
+					option(value='9') 9
+					option(value='10') 10
+					option(value='11') 11
+					option(value='12') 12
+
+			.form-row
+				.form-group.col-md-6
+					label
+						| Jméno a příjmení dítěte
+						font(color="red") * &nbsp
+					input#jmenoDitete6.form-control(
+                    placeholder='Jméno a příjmení dítěte...',
+                    type='text',
+                    required='')
+
+				.form-group.col-md-6
+					label
+						| Rodné číslo dítěte
+						font(color="red") * &nbsp
+					input#RCDitete6.form-control(
+                        placeholder='Rodné číslo dítěte (uvádějte s lomítkem)...',
+                        name='vydajeSazba',
+                        type='text')
+				br

@@ -1,0 +1,57 @@
++otazka('Platil(a) jsem v uplynulém roce hypotéku či jiný úvěr na bydlení   ', 'Hypotéka', 'Poplatníci mají možnost snížit základ své daně uplatněním uhrazených úroků z úvěru. V případě, že je účastníků úvěrové smolouvy více, může uplatnit úroky buďto jeden z nich nebo všichni poměrnou částí. Úhrnní částka, o kterou lze snížit základ daně u poplatníků ve stejné domácnosti, je 300 000 Kč.<br><br>Částku, kterou je možné odečíst od základu daně, naleznete v potvrzení o zaplacených úrocích, jež každoročně svým klientům zasílají banky. Potvrzení přiložte ke svému daňovému přiznání jako přílohu.')
++vyber("$('#div23').slideDown();")
+
+#div23.none
+  .form-group
+   label Počet hypoték, které mám &nbsp
+    +napoveda('Počet hypoték', 'Vyberte počet hypoték nebo jiných úvěrů na bydlení, které máte uzavřené.')
+
+   select#pocetHypotek.form-control.form-control-lg(
+       name='pocetHypotek',
+       required='required')
+    option(value='0') Počet hypoték...
+    option(value='1') 1
+    option(value='2') 2
+    option(value='3') 3
+    option(value='4') 4
+    option(value='5') 5
+    option(value='6') 6
+    option(value='7') 7
+    option(value='8') 8
+    option(value='9') 9
+    option(value='10') 10
+
+  .form-group
+   label Počet měsíců
+    font(color="red") * &nbsp
+    +napoveda('Částka za všechna zaplacená pojištění a spoření', 'Vyberte počet měsíců loňského roku, během nichž jste měl hypotéku.')
+
+   select#pocetMesicuHypotek.form-control.form-control-lg(
+       name='pocetMesicuHypotek',
+       onchange='hypoteka()',
+       required='required')
+    option(value='0') Počet měsíců...
+    option(value='1') 1
+    option(value='2') 2
+    option(value='3') 3
+    option(value='4') 4
+    option(value='5') 5
+    option(value='6') 6
+    option(value='7') 7
+    option(value='8') 8
+    option(value='9') 9
+    option(value='10') 10
+    option(value='11') 11
+    option(value='12') 12
+   br
+
+   label Částka za všechny hypotéky
+    font(color="red") * &nbsp
+    +napoveda('Částka za všechny hypotéky a ostatní úvěry na bydlení', 'Prosím uvádějte částky v celých Kč.')
+   small.form-text.text-muted Celkově lze uplatnit maximálně 300 000 Kč!
+   input#castkaHypoteky.form-control(
+        placeholder='Uvedte částku za za všechny hypotéky...',
+        type='text',
+        onkeyup = 'hypoteka()',
+        oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+        required='')
