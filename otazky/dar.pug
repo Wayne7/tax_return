@@ -1,0 +1,14 @@
++otazka('Poskytl(a) jsem dar   ', 'Poskytnutí daru', 'Dle zákona může poplatník snížit základ své daně v souvislosti s poskytnutím bezúplatného plnění neboli daru. Darem může být kromě finanční částky také nemovitá věc či dokonce poskytnutí služby. V případě, že není hodnota daru známa, je výše ceny ohodnocena dle zákonu o oceňování majetku. Pro splnění podmínek odčitatelných položek je nutno, aby souhrná hodnota těchto darů byla alespoň 1 000 Kč (může se jednat o pět darů po 200 Kč) nebo musí činit alespoň 2% základu daně.')
++vyber("$('#div19').slideDown();")
+
+#div19.none
+  .form-group
+   label Celková darovaná částka
+    font(color="red") * &nbsp
+   small.form-text.text-muted Minimální darovaná částka musí být 1 000 Kč!
+   input#dar.form-control(
+       placeholder='Uveďte darovanou částku...',
+       type='text',
+       onblur = 'darCheck()',
+       oninput="this.value=this.value.replace(/[^0-9]/g,'');",
+       required='')

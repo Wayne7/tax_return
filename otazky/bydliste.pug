@@ -1,0 +1,109 @@
+h3.otazka Bydliště
+br
+br
+.form-row
+	.form-group.col-md-6
+		label Obec
+			font(color="red") * &nbsp
+		input#obec.form-control(
+            placeholder='Obec...')
+	.form-group.col-md-6
+		label Ulice
+			font(color="red") * &nbsp
+		input#ulice.form-control(
+            placeholder='Ulice...')
+	.form-group.col-md-6
+		label Číslo popisné
+			font(color="red") * &nbsp
+		input#CP.form-control(
+            placeholder='Číslo popisné...')
+	.form-group.col-md-6
+		label PSČ
+			font(color="red") * &nbsp
+		input#PSC.form-control(
+            placeholder='Poštovní směrovací číslo...',
+			maxlength="5",
+			oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+	.form-group.col-md-6
+		label Email
+		input#email.form-control(
+            placeholder='Email...')
+	.form-group.col-md-6
+		label Telefon
+		input#telefon.form-control(
+            placeholder='Telefon...',
+            oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+
+.form-group
+	label Stát
+		font(color="red") * &nbsp
+	.autocomplete
+		input#stat.form-control(
+			type='text',
+			name='stat',
+			placeholder='Vyberte stát...')
+
+br
+button#new-board-btn.btn.btn-outline-danger.btn-lg.btn-block(
+	type='button',
+	onclick="$('#div29_1').slideDown();")
+	| Dne 31.12.2018 jsem měl(a) jinou adresu pobytu
+br
+#div29_1.none
+	.form-group.col-md-6
+		label Obec
+			font(color="red") * &nbsp
+		input#obec2.form-control(
+            placeholder='Obec...')
+	.form-group.col-md-6
+		label Ulice
+			font(color="red") * &nbsp
+		input#ulice2.form-control(
+            placeholder='Ulice...')
+	.form-group.col-md-6
+		label Číslo popisné
+			font(color="red") * &nbsp
+		input#CP2.form-control(
+            placeholder='Číslo popisné...')
+	.form-group.col-md-6
+		label PSČ
+			font(color="red") * &nbsp
+		input#PSC2.form-control(
+            placeholder='Poštovní směrovací číslo...')
+
+button#new-board-btn.btn.btn-outline-danger.btn-lg.btn-block(
+	type='button',
+	onclick="$('#div29_2').slideDown();")
+	| Nejsem občanem ČR, nemám zde trvalé bydliště, ale obvykle se na území ČR zdržuji
+
+br
+#div29_2.none
+	.form-group.col-md-6
+		label Obec
+			font(color="red") * &nbsp
+		input#obec3.form-control(
+            placeholder='Obec...')
+	.form-group.col-md-6
+		label Ulice
+			font(color="red") * &nbsp
+		input#ulice3.form-control(
+            placeholder='Ulice...')
+	.form-group.col-md-6
+		label Číslo popisné
+			font(color="red") * &nbsp
+		input#CP3.form-control(
+            placeholder='Číslo popisné...')
+	.form-group.col-md-6
+		label PSČ
+			font(color="red") * &nbsp
+		input#PSC3.form-control(
+            placeholder='Poštovní směrovací číslo...')
+	.form-group.col-md-6
+		label Telefon
+		input#telefon3.form-control(
+            placeholder='Telefon...',
+            oninput="this.value=this.value.replace(/[^0-9]/g,'');")
+	.form-group.col-md-6
+		label Email
+		input#email3.form-control(
+            placeholder='Email...')
